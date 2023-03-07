@@ -42,6 +42,9 @@ library(tidyverse)
 
 ```{r}
 #| label: load-data-1
+school <- read.csv("data/school.csv", sep = ",", header = TRUE)
+
+glimpse(school)
 
 ```
 
