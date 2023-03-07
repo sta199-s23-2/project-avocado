@@ -32,11 +32,21 @@ library(tidyverse)
 
 ## Literature
 
--   Find one published credible article on the topic you are interested in researching.
+**Primary Barriers to Working Class Representation**
 
--   Provide a one paragraph summary about the article.
+Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 
--   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al. found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al. suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates. 
+
+This article uses the Primary Barriers to Working Class Representation dataset to analyze election results based on whether the candidates were working class and then analyzes factors that affected why working class candidates did not win elections. Our research would seek to understand how working class candidates overcame barriers to winning primary elections by analyzing factors that were outliers among candidates that did win the election. 
+
+**NC School Performance (2016-2017)**
+
+Ford, J. E., & Triplett, N. (2019, August 19). E(race)ing Inequities \| How race influences who is designated \'gifted\' in North Carolina. EducationNC. Retrieved March 7, 2023, from https://www.ednc.org/eraceing-inequities-the-state-of-racial-equity-in-north-carolina-public-schools/ 
+
+Ford and Triplett sought to understand racial disparities among the Academically or Intellectually Gifted (AIG) designations in public school students in North Carolina. They found that among students with AIG in Math designations, Asian and White students were overrepresented and in AIG in Reading Asian, White, and Multiracial students were overrepresented. Overall, Black students and American Indian students were underrepresented in the proportion of students designated as academically and intellectually gifted. By their proportion in the student body, there should be 6,200 more Black students designated as AIG in Math. Ford and Triplett chose to conduct this analysis because of the positive impact of gifted and talented programs on students' plans and career successes post high school. With low representation of students of color in the academically and intellectually student population, students of color are likely being disadvantaged when it comes to education post-high school and career advancements.
+
+Our research also seeks to use North Carolina educational data on academically and intellectually gifted students, but rather than studying these statistics through the lens of racial differences we hope to analyze whether students designated AIG in North Carolina tend to have certain AIG designations in certain categories such as math or reading over others. This question hopes to dig deeper into whether there is a bias in designating students thriving in a particular  academic area such as math as being academically or intellectually gifted overall.
 
 ## Glimpse of data
 

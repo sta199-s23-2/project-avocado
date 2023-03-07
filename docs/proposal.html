@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -157,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -168,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#literature" id="toc-literature" class="nav-link" data-scroll-target="#literature">Literature</a></li>
   <li><a href="#glimpse-of-data" id="toc-glimpse-of-data" class="nav-link" data-scroll-target="#glimpse-of-data">Glimpse of data</a></li>
   </ul></li>
+  <li><a href="#add-code-here" id="toc-add-code-here" class="nav-link" data-scroll-target="#add-code-here">add code here</a></li>
   <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data 2</a>
   <ul class="collapse">
   <li><a href="#introduction-and-data-1" id="toc-introduction-and-data-1" class="nav-link" data-scroll-target="#introduction-and-data-1">Introduction and data</a></li>
@@ -207,18 +213,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.2.2</code></pre>
-</div>
 </div>
 <section id="data-1" class="level1">
 <h1>Data 1</h1>
@@ -233,43 +227,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="research-question" class="level2">
 <h2 class="anchored" data-anchor-id="research-question">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
 </section>
 <section id="literature" class="level2">
 <h2 class="anchored" data-anchor-id="literature">Literature</h2>
-<ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
-</ul>
+<p><strong>Primary Barriers to Working Class Representation</strong></p>
+<p>Treul, S. A., &amp; Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914</p>
+<p>This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al.&nbsp;found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al.&nbsp;suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates.&nbsp;</p>
+<p>This article uses the Primary Barriers to Working Class Representation dataset to analyze election results based on whether the candidates were working class and then analyzes factors that affected why working class candidates did not win elections. Our research would seek to understand how working class candidates overcame barriers to winning primary elections by analyzing factors that were outliers among candidates that did win the election.&nbsp;</p>
+<p><strong>NC School Performance (2016-2017)</strong></p>
+<p>Ford, J. E., &amp; Triplett, N. (2019, August 19). E(race)ing Inequities | How race influences who is designated 'gifted' in North Carolina. EducationNC. Retrieved March 7, 2023, from https://www.ednc.org/eraceing-inequities-the-state-of-racial-equity-in-north-carolina-public-schools/&nbsp;</p>
+<p>Ford and Triplett sought to understand racial disparities among the Academically or Intellectually Gifted (AIG) designations in public school students in North Carolina. They found that among students with AIG in Math designations, Asian and White students were overrepresented and in AIG in Reading Asian, White, and Multiracial students were overrepresented. Overall, Black students and American Indian students were underrepresented in the proportion of students designated as academically and intellectually gifted. By their proportion in the student body, there should be 6,200 more Black students designated as AIG in Math. Ford and Triplett chose to conduct this analysis because of the positive impact of gifted and talented programs on students’ plans and career successes post high school. With low representation of students of color in the academically and intellectually student population, students of color are likely being disadvantaged when it comes to education post-high school and career advancements.</p>
+<p>Our research also seeks to use North Carolina educational data on academically and intellectually gifted students, but rather than studying these statistics through the lens of racial differences we hope to analyze whether students designated AIG in North Carolina tend to have certain AIG designations in certain categories such as math or reading over others. This question hopes to dig deeper into whether there is a bias in designating students thriving in a particular&nbsp; academic area such as math as being academically or intellectually gifted overall.</p>
 </section>
 <section id="glimpse-of-data" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 </section>
+</section>
+<section id="add-code-here" class="level1">
+<h1>add code here</h1>
 </section>
 <section id="data-2" class="level1">
 <h1>Data 2</h1>
 <section id="introduction-and-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-1">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li>Identify the source of the data.</li>
 </ul>
+<p>– Hansen, Eric R.; Treul, Sarah A., 2023, “Replication Data for: Primary Barriers to Working Class Representation”, https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf [fileName] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, “Replication Data for: Primary Barriers to Working Class Representation”, https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== [fileUNF]</p>
+<ul>
+<li>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</li>
+</ul>
+<p>The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and by Sarah A. Treul, an Associate Professor of political science at UNC. The authors collected and analyzed novel data describing the occupational background of all candidates who competed in U.S. House primaries between 2008 and 2016. Treul, S. A., &amp; Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914</p>
+<ul>
+<li>Write a brief description of the observations.</li>
+</ul>
+<p>The dataset was used to give us an idea of how well working class candidates perform in U.S. House primary elections. Observations included information on factors such as result of election, fundraising, incumbency status, education level, ideology, and so on.</p>
 </section>
 <section id="research-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-1">Research question</h2>
 <ul>
 <li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
+</ul>
+<p>Among the working class candidates that won the elections, what are the two most prominent factors that positively contribute to higher vote shares. Are these two factors intertwined or function independently in influencing the vote shares?</p>
+<ul>
 <li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
+</ul>
+<p>The dataset is trying to find factors that influence working class candidate performance in U.S. house primary elections. Instead of looking at the general picture, we want to focus on candidates who won the election and pin down the two most important factors, We hope this can provide insight to future working class candidates regarding things they need to pay extra attention on. We hypothesize that the number of quality opponents and the amount of money contributed to the candidate’s campaign would be the two most influential factors in contributing to a larger share of vote for working class candidates. We also hypothesize that these two variables have an interaction, where more money was put into the campaign when given a larger number of quality opponents.</p>
+<ul>
 <li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
 </ul>
+<p>The dependent variable is the vote share, which is a quantitative variable. The two independent variables hypothesized at this moment to be the most influential are the number of the quality opponents and amount of money contributed to the candidate’s campaign. The number of quality opponents would be a quantitative variable, and amount of money would also be a quantitative variable.</p>
 </section>
 <section id="literature-1" class="level2">
 <h2 class="anchored" data-anchor-id="literature-1">Literature</h2>
@@ -282,7 +296,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="glimpse-of-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>candidate <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/Treul_Hansen_Replication_Data.tab"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(candidate, <span class="at">file =</span> <span class="st">"data/candidate.csv"</span>, <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in write.csv(candidate, file = "data/candidate.csv", col.names = TRUE):
+attempt to set 'col.names' ignored</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candidate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 7,869
+Columns: 24
+$ worker                &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …
+$ worker_current_recode &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ state_abbrev          &lt;chr&gt; "IN", "WA", "NH", "MI", "MD", "MN", "TN", "WV", …
+$ raceid                &lt;int&gt; 201014091, 200847089, 201029010, 201222021, 2010…
+$ year                  &lt;int&gt; 2010, 2008, 2010, 2012, 2010, 2016, 2014, 2008, …
+$ dem_vote              &lt;dbl&gt; 0.4470, 0.4720, 0.4400, 0.3590, 0.6500, 0.3427, …
+$ candnumber            &lt;int&gt; 5, 6, 8, 1, 3, 3, 4, 1, 5, 3, 3, 6, 2, 2, 7, 1, …
+$ cand_party            &lt;chr&gt; "Democrat", "Third-Party", "Republican", "Democr…
+$ candvotes             &lt;int&gt; 4820, 2116, 653, 1, 5479, 4402, 4434, 15919, 343…
+$ tvotes                &lt;int&gt; 54552, 152726, 65283, 1, 53352, 9566, 30183, 159…
+$ candpct               &lt;dbl&gt; 0.088356100, 0.013854877, 0.010002600, 1.0000000…
+$ winwin                &lt;int&gt; 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, …
+$ quality_cand          &lt;int&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ qualnumber            &lt;int&gt; 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 2, 0, …
+$ openseat              &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, …
+$ PartyDonors1          &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ college               &lt;dbl&gt; 0.1172, 0.2649, 0.2080, 0.1564, 0.1818, 0.2096, …
+$ dist_income           &lt;dbl&gt; 0.42314, 0.82671, 0.61948, 0.46584, 0.83020, 0.7…
+$ total_primary         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, NA, 0, 0, NA, 0, 0, 0, 0, 0, 0…
+$ third                 &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, …
+$ gop                   &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, …
+$ ideo_extreme          &lt;dbl&gt; NA, NA, NA, NA, 1.119, NA, NA, NA, NA, NA, NA, N…
+$ qualbin               &lt;dbl&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -299,9 +348,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="research-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-2">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
 </section>
 <section id="literature-2" class="level2">
@@ -315,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="glimpse-of-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -392,7 +441,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
