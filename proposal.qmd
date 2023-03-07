@@ -16,29 +16,39 @@ library(tidyverse)
 
 ## Introduction and data
 
--   Identify the source of the data.
+-   Identify the source of the data
+
+    Source: North Carolina Department of Public Instruction (government)
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    The data was collected by the North Carolina Department of Public Instruction in 2016-2017 from standardized tests administered in public schools in North Carolina such as the EOG and the ACT. 
+
 -   Write a brief description of the observations.
+
+    Each observation is one standardized test subject with a categorized level of performance from a public school in North Carolina. The variables for each observation include school name, code, district name, percent of students of different gender and race. Each observation also has variables for percent of students who are Economically Disadvantaged, Limited English Proficient, Students with Disabilities, and Academically or Intellectually Gifted. 
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    **Main question: How do AIG (Academically or Intellectually Gifted) students in Durham Public Schools Perform depending on the subject categories of the standardized test?** 
+
+    In Durham Public Schools, is there correlation between performance on a standardized test for a specific subject and identifiers such as race, gender socioeconomic status?
+
+    Does standardized test performance vary by county/school district in Durham?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
+
+    We are interested in finding out if there is consistency in how AIG performance in Durham Public Schools varies based on subject. More specifically, do most AIG students in Durham Public Schools tend to perform better in one subject over another? Our hypothesis is, since Western society considers math proficiency to be linked to intelligence, there will be a greater percentage of designated AIG students in Durham Public Schools Who perform at a higher level on math standardized tests compared to reading and other categories. 
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
+    In order to answer our research question, we will need to look at a combination of categorical and quantitative variables. Performance level on standardized tests is a categorical variable with values such as "College and Career Ready" and "Grade Level Proficient." Subject is also a categorical variable. Percentage of AIG students will be a quantitative variable. 
+
+    \
+
 ## Literature
-
-**Primary Barriers to Working Class Representation**
-
-Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
-
-This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al. found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al. suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates. 
-
-This article uses the Primary Barriers to Working Class Representation dataset to analyze election results based on whether the candidates were working class and then analyzes factors that affected why working class candidates did not win elections. Our research would seek to understand how working class candidates overcame barriers to winning primary elections by analyzing factors that were outliers among candidates that did win the election. 
 
 **NC School Performance (2016-2017)**
 
@@ -92,11 +102,13 @@ The dependent variable is the vote share, which is a quantitative variable. The 
 
 ## Literature
 
--   Find one published credible article on the topic you are interested in researching.
+**Primary Barriers to Working Class Representation**
 
--   Provide a one paragraph summary about the article.
+Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 
--   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al. found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al. suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates. 
+
+This article uses the Primary Barriers to Working Class Representation dataset to analyze election results based on whether the candidates were working class and then analyzes factors that affected why working class candidates did not win elections. Our research would seek to understand how working class candidates overcame barriers to winning primary elections by analyzing factors that were outliers among candidates that did win the election. 
 
 ## Glimpse of data
 
@@ -116,17 +128,39 @@ glimpse(candidate)
 
 -   Identify the source of the data.
 
+    The data was downloaded from [Gun Violence Archive's website](http://www.gunviolencearchive.org/). GVA is a not for profit corporation formed in 2013 to provide free online public access to accurate information about gun-related violence in the United States. We obtained the data set by searching in the database and filter for data (1/1/2023-2/28/2023) and incident characteristics (contains shot with wounded or injuries).
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    The Gun Violence Archive website (GVA) collected the data of gun violence and crime incidents from 7,500 sources daily, which could be found at the gunviolencearchive.org website. The source for each observation in the dataset we use could be found in the operation section of this webpage: https://www.gunviolencearchive.org/query/f794465e-e174-4ccc-9692-88dd7f0bb7ab The Gun Violence Archive website collects and updates the data on a daily basis. The data set we use was collected during January and February 2023 and the data sources were last verified on March 05, 2023.
+
 -   Write a brief description of the observations.
+
+    This data set summarizes the gun violence incidents in the United States with shot and wounded/injuries in the first two months of 2023 (from 1/1/2023 - 2/28/2023). There are a total of 4261 observations and 8 columns (7 columns apart from the "operations" section) in the data set. Each observation represents an incident. The columns specify the incident ID, date, state, city, address, whether the victim was killed, and whether the victim was injured.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    How do time and location (independently or dependently) affect the gunshot incident frequency and the rate of death vs. injury?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    Our research topic focuses on analyzing the influence of time and space factors on the risk and severance of gunshot incidents in the U.S. We are interested in this topic since gunshot violence incidents are not uncommon in or around universities and we had heard about many gunshot incidents in universities recently, such as the one just happened in MSU. By analyzing the time and space factors, we hope to inform the government and the public about the risk of gunshot incidents. Governments might be able to make informed efforts like strengthening the security measures during particular time and in particular locations while people considering locations to live or study could make more informed decisions based on safety as well.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   Incident Date - categorical, \<chr\>, in the format of "\<month\> \<date\>, 2023"
+
+    -   State - categorical, \<chr\>, the name of the state
+
+    -   City or County - categorical, \<chr\>, the name of the city or county
+
+    -   Address - categorical, \<chr\>, the place the incident takes place
+
+    -   \# Killed - quantitative, \<int\>, the number of people killed in the incident
+
+    -   \# Injured - quantitative, \<int\>, the number of people injured in the incident
 
 ## Literature
 
@@ -143,5 +177,8 @@ Our research will use the Gun Violence Archive but rather than looking at commun
 ```{r}
 #| label: load-data-3
 
-# add code here
+gunshot_incidents <- read.csv("data/gunshot_incidents.csv", 
+                              sep = ",", header = TRUE)
+
+glimpse(gunshot_incidents)
 ```
