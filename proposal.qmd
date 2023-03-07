@@ -177,7 +177,8 @@ Our research will use the Gun Violence Archive but rather than looking at commun
 ```{r}
 #| label: load-data-3
 
-gunshot_incidents <- read.csv("data/gunshot_incidents.csv", sep = ",", header = TRUE)
+gunshot_incidents <- read.csv("data/gunshot_incidents.csv", 
+                              sep = ",", header = TRUE)
 
 glimpse(gunshot_incidents)
 ```
