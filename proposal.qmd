@@ -44,7 +44,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    In order to answer our research question, we will need to look at a combination of categorical and quantitative variables. Performance level on standardized tests is a categorical variable with values such as \"College and Career Ready\" and \"Grade Level Proficient.\" Subject is also a categorical variable. Percentage of AIG students will be a quantitative variable. 
+    In order to answer our research question, we will need to look at a combination of categorical and quantitative variables. Performance level on standardized tests is a categorical variable with values such as "College and Career Ready" and "Grade Level Proficient." Subject is also a categorical variable. Percentage of AIG students will be a quantitative variable. 
 
     \
 
@@ -128,17 +128,41 @@ glimpse(candidate)
 
 -   Identify the source of the data.
 
+    The data was downloaded from [Gun Violence Archive's website](http://www.gunviolencearchive.org/). GVA is a not for profit corporation formed in 2013 to provide free online public access to accurate information about gun-related violence in the United States.
+    We obtained the data set by searching in the database and filter for data (1/1/2023-2/28/2023) and incident characteristics (contains shot with wounded or injuries).
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    The Gun Violence Archive website (GVA) collected the data of gun violence and crime incidents from 7,500 sources daily, which could be found at the gunviolencearchive.org website. The source for each observation in the dataset we use could be found in the operation section of this webpage: https://www.gunviolencearchive.org/query/f794465e-e174-4ccc-9692-88dd7f0bb7ab
+    The Gun Violence Archive website collects and updates the data on a daily basis. The data set we use was collected during January and February 2023 and the data sources were last verified on March 05, 2023.
+
 -   Write a brief description of the observations.
+
+    This data set summarizes the gun violence incidents in the United States with shot and wounded/injuries in the first two months of 2023 (from 1/1/2023 - 2/28/2023). There are a total of xx observations and 8 columns (7 columns apart from the "operations" section) in the data set. Each observation represents an incident. The columns specify the incident ID, date, state, city, address, whether the victim was killed, and whether the victim was injured.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    How do time and location (independently or dependently) affect the gunshot incident frequency and the rate of death vs. injury?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    Our research topic focuses on analyzing the influence of time and space factors on the risk and severance of gunshot incidents in the U.S. We are interested in this topic since gunshot violence incidents are not uncommon in or around universities and we had heard about many gunshot incidents in universities recently, such as the one just happened in MSU. By analyzing the time and space factors, we hope to inform the government and the public about the risk of gunshot incidents. Governments might be able to make informed efforts like strengthening the security measures during particular time and in particular locations while people considering locations to live or study could make more informed decisions based on safety as well.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   Incident Date - categorical, \<chr\>, in the format of "\<month\> \<date\>, 2023"
+
+    -   State - categorical, \<chr\>, the name of the state
+
+    -   City or County - categorical, \<chr\>, the name of the city or county
+
+    -   Address - categorical, \<chr\>, the place the incident takes place
+
+    -   \# Killed - quantitative, \<int\>, the number of people killed in the incident
+
+    -   \# Injured - quantitative, \<int\>, the number of people injured in the incident
 
 ## Literature
 
