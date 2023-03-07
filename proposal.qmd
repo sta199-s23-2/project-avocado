@@ -128,11 +128,13 @@ glimpse(candidate)
 
 ## Literature
 
--   Find one published credible article on the topic you are interested in researching.
+**Gun Violence Archive**
 
--   Provide a one paragraph summary about the article.
+Johnson, B. T., Sisti, A., Bernstein, M., Chen, K., Hennessy, E. A., Acabchuk, R. L., & Matos, M. (2021). Community-level factors and incidence of gun violence in the United States, 2014--2017. Social Science & Medicine, 280. https://doi.org/10.1016/j.socscimed.2021.113969 
 
--   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+This article examines community and state-level factors that affect gun violence in the United States. In order to gain a better understanding of gun violence as a public health issue, the study looked at county and state-level predictors of gun violence rates and gun-related casualty rates. Data sources for this study included the Gun Violence Archive data from 2014-2017, which is the same archive but prior to the dataset we are using. The study found that community and state-level factors do affect gun violence specifically gun violence is higher among counties that had high median incomes and also high levels of poverty. However, poverty levels did not appear to be correlated with gun violence rates in counties with low median incomes. Factors such as institutional racism and police presence may influence the associations between community level factors and gun violence. 
+
+Our research will use the Gun Violence Archive but rather than looking at community and state-level factors that affect gun violence we will be analyzing the time and location of gun violence incidents and how these factors affect the level of injury and death rate. There is no causation between time and location and death rates, but there may be correlations, for example if there are fewer operating ambulances in one county at a particular time of day, that could lead to an increase of death rates from gun violence.
 
 ## Glimpse of data
 
