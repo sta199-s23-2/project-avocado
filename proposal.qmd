@@ -128,17 +128,15 @@ glimpse(candidate)
 
 -   Identify the source of the data.
 
-    The data was downloaded from [Gun Violence Archive's website](http://www.gunviolencearchive.org/). GVA is a not for profit corporation formed in 2013 to provide free online public access to accurate information about gun-related violence in the United States.
-    We obtained the data set by searching in the database and filter for data (1/1/2023-2/28/2023) and incident characteristics (contains shot with wounded or injuries).
+    The data was downloaded from [Gun Violence Archive's website](http://www.gunviolencearchive.org/). GVA is a not for profit corporation formed in 2013 to provide free online public access to accurate information about gun-related violence in the United States. We obtained the data set by searching in the database and filter for data (1/1/2023-2/28/2023) and incident characteristics (contains shot with wounded or injuries).
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
-    The Gun Violence Archive website (GVA) collected the data of gun violence and crime incidents from 7,500 sources daily, which could be found at the gunviolencearchive.org website. The source for each observation in the dataset we use could be found in the operation section of this webpage: https://www.gunviolencearchive.org/query/f794465e-e174-4ccc-9692-88dd7f0bb7ab
-    The Gun Violence Archive website collects and updates the data on a daily basis. The data set we use was collected during January and February 2023 and the data sources were last verified on March 05, 2023.
+    The Gun Violence Archive website (GVA) collected the data of gun violence and crime incidents from 7,500 sources daily, which could be found at the gunviolencearchive.org website. The source for each observation in the dataset we use could be found in the operation section of this webpage: https://www.gunviolencearchive.org/query/f794465e-e174-4ccc-9692-88dd7f0bb7ab The Gun Violence Archive website collects and updates the data on a daily basis. The data set we use was collected during January and February 2023 and the data sources were last verified on March 05, 2023.
 
 -   Write a brief description of the observations.
 
-    This data set summarizes the gun violence incidents in the United States with shot and wounded/injuries in the first two months of 2023 (from 1/1/2023 - 2/28/2023). There are a total of xx observations and 8 columns (7 columns apart from the "operations" section) in the data set. Each observation represents an incident. The columns specify the incident ID, date, state, city, address, whether the victim was killed, and whether the victim was injured.
+    This data set summarizes the gun violence incidents in the United States with shot and wounded/injuries in the first two months of 2023 (from 1/1/2023 - 2/28/2023). There are a total of 4261 observations and 8 columns (7 columns apart from the "operations" section) in the data set. Each observation represents an incident. The columns specify the incident ID, date, state, city, address, whether the victim was killed, and whether the victim was injured.
 
 ## Research question
 
@@ -179,5 +177,7 @@ Our research will use the Gun Violence Archive but rather than looking at commun
 ```{r}
 #| label: load-data-3
 
-# add code here
+gunshot_incidents <- read.csv("data/gunshot_incidents.csv", sep = ",", header = TRUE)
+
+glimpse(gunshot_incidents)
 ```
