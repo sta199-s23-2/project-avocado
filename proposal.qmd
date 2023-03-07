@@ -30,7 +30,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -43,8 +43,10 @@ library(tidyverse)
 ```{r}
 #| label: load-data-1
 
-# add code here
+
 ```
+
+# add code here
 
 # Data 2
 
@@ -52,19 +54,31 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
+-- Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf \[fileName\] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== \[fileUNF\]
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and by Sarah A. Treul, an Associate Professor of political science at UNC. The authors collected and analyzed novel data describing the occupational background of all candidates who competed in U.S. House primaries between 2008 and 2016. Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
+
 -   Write a brief description of the observations.
+
+The dataset was used to give us an idea of how well working class candidates perform in U.S. House primary elections. Observations included information on factors such as result of election, fundraising, incumbency status, education level, ideology, and so on.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+Among the working class candidates that won the elections, what are the two most prominent factors that positively contribute to higher vote shares. Are these two factors intertwined or function independently in influencing the vote shares?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
+
+The dataset is trying to find factors that influence working class candidate performance in U.S. house primary elections. Instead of looking at the general picture, we want to focus on candidates who won the election and pin down the two most important factors, We hope this can provide insight to future working class candidates regarding things they need to pay extra attention on. We hypothesize that the number of quality opponents and the amount of money contributed to the candidate's campaign would be the two most influential factors in contributing to a larger share of vote for working class candidates. We also hypothesize that these two variables have an interaction, where more money was put into the campaign when given a larger number of quality opponents.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+The dependent variable is the vote share, which is a quantitative variable. The two independent variables hypothesized at this moment to be the most influential are the number of the quality opponents and amount of money contributed to the candidate's campaign. The number of quality opponents would be a quantitative variable, and amount of money would also be a quantitative variable.
+
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -76,8 +90,12 @@ library(tidyverse)
 
 ```{r}
 #| label: load-data-2
+candidate <- read.table("data/Treul_Hansen_Replication_Data.tab", 
+                        sep = "\t", header = TRUE)
+write.csv(candidate, file = "data/candidate.csv", col.names = TRUE)
 
-# add code here
+glimpse(candidate)
+
 ```
 
 # Data 3
@@ -98,7 +116,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
