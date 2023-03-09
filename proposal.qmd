@@ -84,7 +84,7 @@ The data set came from a journal published at Political Research Quarterly (2023
 
 -   Write a brief description of the observations.
 
-The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors such as result of election, fundraising, incumbency status, education level, ideology, and so on.
+The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, political affiliation, and so on.
 
 ## Research question
 
@@ -100,9 +100,7 @@ We hypothesize that the incumbent status and the amount of money contributed to 
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-The dependent variable is the vote share, which is a quantitative variable. The two independent variables hypothesized at this moment to be the most influential are the incumbent status and amount of money contributed to the candidate's campaign. T
-
-he incumbent status variable would be categorical (0: nonquality nonincumbent, 1: quality nonincumbent, 2: incumbent) variable, and amount of money would be a quantitative variable.
+The dependent variable is the vote share, which is a quantitative variable. The two independent variables hypothesized at this moment to be the most influential are the incumbent status and amount of money contributed to the candidate's campaign. The incumbent status variable would be categorical (0: nonquality nonincumbent, 1: quality nonincumbent, 2: incumbent) variable, and amount of money would be a quantitative variable.
 
 ## Literature
 
