@@ -17,7 +17,7 @@ execute:
 
 2.  Independent variables: We select the variables that potentially measure factors related to the candidate\'s vote share. These selected 14 independent variables include:
 
--   state (the state the candidate is from)
+-   state_abbrev (the state the candidate is from)
 
 -   candnumber (count of opponents in the candidate\'s primary election)
 
@@ -257,7 +257,7 @@ linear_reg()|>
 
 ```{r}
 #| label: backward-selection 
-#| message: false
+#| eval: false
 
 lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
