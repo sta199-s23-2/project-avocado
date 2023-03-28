@@ -19,6 +19,7 @@ execute:
 
 library(tidyverse)
 library(tidymodels)
+library(MASS)
 ```
 
 ```{r}
@@ -207,3 +208,25 @@ linear_reg()|>
   glance() |>
   pull(AIC)
 ```
+
+```{r}
+#| label: forward-elimination-step3
+
+linear_reg()|> 
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + quality_cand, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+```
+```{r}
+#| label: backward-selection 
+#| message: false
+
+lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
+          + qualnumber + openseat + PartyDonors1 + college + dist_income
+          + total_primary + third + gop + ideo_extreme + former_worker, 
+          data = candidate)
+stepAIC(lm1,  direction = "backward", na.rm = T) 
+```
+
