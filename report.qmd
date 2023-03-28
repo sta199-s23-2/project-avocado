@@ -305,7 +305,7 @@ stepAIC(lm1,  direction = "backward")
 
 
 lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
->>>>>>> d52d316ab13741915974ab6e7231440fee2fee9a
+
 stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
           + total_primary + third + gop + former_worker,
