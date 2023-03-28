@@ -237,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
 <p>We are interested in finding out if there is consistency in how AIG performance in Durham Public Schools varies based on subject. More specifically, do most AIG students in Durham Public Schools tend to perform better in one subject over another? Our hypothesis is, since Western society considers math proficiency to be linked to intelligence, there will be a greater percentage of designated AIG students in Durham Public Schools Who perform at a higher level on math standardized tests compared to reading and other categories.&nbsp;</p></li>
 <li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
-<p>In order to answer our research question, we will need to look at a combination of categorical and quantitative variables. Performance level on standardized tests is a categorical variable with values such as "College and Career Ready" and "Grade Level Proficient." Subject is also a categorical variable. Percentage of AIG students will be a quantitative variable.&nbsp;</p>
+<p>In order to answer our research question, we will need to look at a combination of categorical and quantitative variables. Performance level on standardized tests is a categorical variable with values such as “College and Career Ready” and “Grade Level Proficient.” Subject is also a categorical variable. Percentage of AIG students will be a quantitative variable.&nbsp;</p>
 <p><br>
 </p></li>
 </ul>
@@ -370,17 +370,30 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 <section id="introduction-and-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-2">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<p>The data was downloaded from <a href="http://www.gunviolencearchive.org/">Gun Violence Archive’s website</a>. GVA is a not for profit corporation formed in 2013 to provide free online public access to accurate information about gun-related violence in the United States. We obtained the data set by searching in the database and filter for data (1/1/2023-2/28/2023) and incident characteristics (contains shot with wounded or injuries).</p></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<p>The Gun Violence Archive website (GVA) collected the data of gun violence and crime incidents from 7,500 sources daily, which could be found at the gunviolencearchive.org website. The source for each observation in the dataset we use could be found in the operation section of this webpage: https://www.gunviolencearchive.org/query/f794465e-e174-4ccc-9692-88dd7f0bb7ab The Gun Violence Archive website collects and updates the data on a daily basis. The data set we use was collected during January and February 2023 and the data sources were last verified on March 05, 2023.</p></li>
+<li><p>Write a brief description of the observations.</p>
+<p>This data set summarizes the gun violence incidents in the United States with shot and wounded/injuries in the first two months of 2023 (from 1/1/2023 - 2/28/2023). There are a total of 4261 observations and 8 columns (7 columns apart from the “operations” section) in the data set. Each observation represents an incident. The columns specify the incident ID, date, state, city, address, whether the victim was killed, and whether the victim was injured.</p></li>
 </ul>
 </section>
 <section id="research-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-2">Research question</h2>
 <ul>
-<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p></li>
-<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
-<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<p>How do time and location (independently or dependently) affect the gunshot incident frequency and the rate of death vs.&nbsp;injury?</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<p>Our research topic focuses on analyzing the influence of time and space factors on the risk and severance of gunshot incidents in the U.S. We are interested in this topic since gunshot violence incidents are not uncommon in or around universities and we had heard about many gunshot incidents in universities recently, such as the one just happened in MSU. By analyzing the time and space factors, we hope to inform the government and the public about the risk of gunshot incidents. Governments might be able to make informed efforts like strengthening the security measures during particular time and in particular locations while people considering locations to live or study could make more informed decisions based on safety as well.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
+<ul>
+<li><p>Incident Date - categorical, &lt;chr&gt;, in the format of “&lt;month&gt; &lt;date&gt;, 2023”</p></li>
+<li><p>State - categorical, &lt;chr&gt;, the name of the state</p></li>
+<li><p>City or County - categorical, &lt;chr&gt;, the name of the city or county</p></li>
+<li><p>Address - categorical, &lt;chr&gt;, the place the incident takes place</p></li>
+<li><p># Killed - quantitative, &lt;int&gt;, the number of people killed in the incident</p></li>
+<li><p># Injured - quantitative, &lt;int&gt;, the number of people injured in the incident</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="literature-2" class="level2">
@@ -393,7 +406,22 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 <section id="glimpse-of-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gunshot_incidents <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/gunshot_incidents.csv"</span>, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">sep =</span> <span class="st">","</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(gunshot_incidents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 4,261
+Columns: 8
+$ Incident.ID    &lt;int&gt; 2536076, 2535958, 2535944, 2535947, 2535541, 2535883, 2…
+$ Incident.Date  &lt;chr&gt; "28-Feb-23", "28-Feb-23", "28-Feb-23", "28-Feb-23", "28…
+$ State          &lt;chr&gt; "Missouri", "Missouri", "Virginia", "Missouri", "Tennes…
+$ City.Or.County &lt;chr&gt; "Kansas City", "Kansas City", "Richmond", "Saint Louis …
+$ Address        &lt;chr&gt; "2300 block of Blue Ridge Blvd", "3100 block of E 51st …
+$ X..Killed      &lt;int&gt; 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+$ X..Injured     &lt;int&gt; 3, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1…
+$ Operations     &lt;chr&gt; "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",…</code></pre>
+</div>
 </div>
 
 
