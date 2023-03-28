@@ -88,7 +88,11 @@ glimpse(candidate)
 
 candidate_won <- candidate |>
   filter(winwin == 1, worker == 1) #337 observations
+
+candidate_won_new <- candidate_won[,-c(2, 4, 5, 6, 9, 10, 22, 23)]
   
+candidate_final <- candidate_won_new |>
+  drop_na()
 ```
 
 ```{r}
@@ -289,19 +293,22 @@ candidate_won_new <- candidate_won |>
 
 lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
-          + total_primary + third + gop + ideo_extreme + former_worker, 
-          data = candidate_won_new)
-stepAIC(lm1,  direction = "backward", na.rm = T) 
+          + total_primary + third + gop + former_worker, 
+          data = candidate_final)
+stepAIC(lm1,  direction = "backward") 
+
 ```
 
 ```{r}
 #| label: forward-selection 
 #| eval: false
 
-lm2 <- lm(candpct ~ state_abbrev, data = candidate_won_new)
+
+lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
+>>>>>>> d52d316ab13741915974ab6e7231440fee2fee9a
 stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
-          + total_primary + third + gop + ideo_extreme + former_worker,
+          + total_primary + third + gop + former_worker,
         direction = "forward")
 
 ```
