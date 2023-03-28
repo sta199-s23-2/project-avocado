@@ -7,6 +7,12 @@ execute:
   echo: true
 ---
 
+**Introduction and Data**
+
+**Methodology**
+
+**Results**
+
 ```{r}
 #| label: load-pkgs
 #| message: false
