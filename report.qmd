@@ -19,11 +19,7 @@ This research question is important for the following reasons. Given that the wo
 
 -- Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf \[fileName\] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== \[fileUNF\]
 
-<<<<<<< HEAD
 # **Methodology**
-=======
-**Methodology**
->>>>>>> 6a7df9473a01edcf59687ba17de97222213ab331
 
 ***Variables Selection:***
 
