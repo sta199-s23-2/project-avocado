@@ -7,13 +7,43 @@ execute:
   echo: true
 ---
 
-
-
-
-
 **Introduction and Data**
 
 **Methodology**
+
+***Variables Selection:***
+
+1.  Dependent variable: **candpct**, which represents the candidate\'s vote share in the primary election.
+
+2.  Independent variables: We select the variables that potentially measure factors related to the candidate\'s vote share. These selected 14 independent variables include:
+
+-   state (the state the candidate is from)
+
+-   candnumber (count of opponents in the candidate\'s primary election)
+
+-   cand_party (the party of the candidate)
+
+-   quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent)
+
+-   qualnumber (count of quality opponents)
+
+-   openseat (whether the incumbent is running for reelection)
+
+-   partyDonors1 (count of donations candidate received from donors to their party\'s national campaign funds)
+
+-   college (percentage of the congressional district\'s residents who hold four-year college degrees)
+
+-   dist_income (median income of the congressional district)
+
+-   total_primary (total dollars contributed toward a candidate\'s campaign funds and outside spending, unit: millions of dollars)
+
+-   third (whether candidate runs as a third party or independent)
+
+-   gop (whether the candidate is Republican)
+
+-   ideo_extreme (absolute value of Bonica\'s CFscore measure of candidate ideology)
+
+-   former_worker (whether the candidate used to be a worker but is no longer now)
 
 **Results**
 
@@ -235,4 +265,3 @@ lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
           data = candidate)
 stepAIC(lm1,  direction = "backward", na.rm = T) 
 ```
-
