@@ -185,6 +185,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p><strong>Introduction and Data</strong></p>
+<p>The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.</p>
+<p>The authors collected, recorded, and analyzed novel data describing the occupational background of all candidates who competed in the U.S. House primaries between 2008 and 2016.</p>
+<p>The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate’s performance as some of them are only numerical descriptions of vote share.</p>
+<p>This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.</p>
+<p>– Hansen, Eric R.; Treul, Sarah A., 2023, “Replication Data for: Primary Barriers to Working Class Representation”, https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf [fileName] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, “Replication Data for: Primary Barriers to Working Class Representation”, https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== [fileUNF]</p>
 <p><strong>Methodology</strong></p>
 <p><strong><em>Variables Selection:</em></strong></p>
 <ol type="1">
@@ -486,11 +491,20 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> ideo_extreme <span class="sc">+</span> former_worker, </span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> candidate)</span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm1,  <span class="at">direction =</span> <span class="st">"backward"</span>, <span class="at">na.rm =</span> T) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we decided not to do it manually because it was too time-consuming </span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> ideo_extreme <span class="sc">+</span> former_worker, </span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> candidate)</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm1,  <span class="at">direction =</span> <span class="st">"backward"</span>, <span class="at">na.rm =</span> T) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev, <span class="at">data =</span> candidate)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm2,  <span class="at">scope =</span> <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> ideo_extreme <span class="sc">+</span> former_worker,</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="st">"forward"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

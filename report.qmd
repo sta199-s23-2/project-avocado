@@ -9,6 +9,18 @@ execute:
 
 **Introduction and Data**
 
+The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC. 
+
+The authors collected, recorded, and analyzed novel data describing the occupational background of all candidates who competed in the U.S. House primaries between 2008 and 2016.
+
+The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate’s performance as some of them are only numerical descriptions of vote share. 
+
+
+This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.
+
+
+-- Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf [fileName] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== [fileUNF]
+
 **Methodology**
 
 ***Variables Selection:***
