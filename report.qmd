@@ -19,7 +19,11 @@ This research question is important for the following reasons. Given that the wo
 
 -- Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf \[fileName\] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, "Replication Data for: Primary Barriers to Working Class Representation", https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== \[fileUNF\]
 
+<<<<<<< HEAD
 # **Methodology**
+=======
+**Methodology**
+>>>>>>> 6a7df9473a01edcf59687ba17de97222213ab331
 
 ***Variables Selection:***
 
@@ -55,7 +59,19 @@ This research question is important for the following reasons. Given that the wo
 
 -   former_worker (whether the candidate used to be a worker but is no longer now)
 
+<<<<<<< HEAD
 # **Results**
+=======
+***Analysis Procedure:***
+
+1.  First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1).
+
+2.  Second, we use the forward model selection method to compare and choose the variables that best predict the dependent variable. Specifically, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. We repeat this process by trying to add more variables and compare the AIC until we find out the best model. Based on the results, we conclude the most prominent factors related to the vote share.
+
+3.  Using the factors selected, we run an additive and an interactive multiple linear regression model, and compare the results of the two models. Based on the results, we conclude and explain how the factors help contribute to a better performance of working-class representatives in the elections that they won.
+
+**Results**
+>>>>>>> 6a7df9473a01edcf59687ba17de97222213ab331
 
 ```{r}
 #| label: load-pkgs
