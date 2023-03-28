@@ -7,6 +7,10 @@ execute:
   echo: true
 ---
 
+
+
+
+
 **Introduction and Data**
 
 **Methodology**
@@ -207,6 +211,7 @@ linear_reg()|>
   fit(candpct ~ candnumber + former_worker, data = candidate_won) |>
   glance() |>
   pull(AIC)
+
 ```
 
 ```{r}
