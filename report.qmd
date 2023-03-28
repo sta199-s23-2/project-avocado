@@ -7,8 +7,208 @@ execute:
   echo: true
 ---
 
-Add project writeup here.
+
+
+
+
+**Introduction and Data**
+
+**Methodology**
+
+**Results**
 
 ```{r}
+#| label: load-pkgs
+#| message: false
+
+library(tidyverse)
+library(tidymodels)
+```
+
+```{r}
+#| label: load-data-2
+candidate <- read.table("data/Treul_Hansen_Replication_Data.tab", 
+                        sep = "\t", header = TRUE)
+write.csv(candidate, file = "data/candidate.csv", col.names = TRUE)
+
+glimpse(candidate)
+```
+
+```{r}
+#| label: filter-candidate 
+
+candidate_won <- candidate |>
+  filter(winwin == 1, worker == 1)
+  
+```
+
+```{r}
+#| label: forward-elimination-step1
+
+linear_reg()|> #lowest AIC
+  set_engine("lm") |>
+  fit(candpct ~ cand_party, data = candidate_won) |>
+  glance() |>
+  pull(AIC) 
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ total_primary, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ quality_cand, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ state_abbrev, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ openseat, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ qualnumber, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ PartyDonors1, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ college, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ dist_income, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ third, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ gop, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ ideo_extreme, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ former_worker, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+```
+
+```{r}
+#| label: forward-elimination-step2
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + state_abbrev, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + cand_party, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|> #lowest AIC
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + quality_cand, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + qualnumber, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + openseat, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + PartyDonors1, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + college, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + dist_income, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + total_primary, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + third, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + gop, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + ideo_extreme, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber + former_worker, data = candidate_won) |>
+  glance() |>
+  pull(AIC)
 
 ```
