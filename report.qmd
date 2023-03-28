@@ -1,6 +1,6 @@
 ---
-title: "Project title"
-subtitle: "Report"
+title: "Working Class Representative Performance"
+subtitle: "Which factors positively contribute to votes in their favor"
 format: html
 editor: visual
 execute:
