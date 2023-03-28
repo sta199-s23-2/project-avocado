@@ -259,9 +259,24 @@ linear_reg()|>
 #| label: backward-selection 
 #| eval: false
 
+#we decided not to do it manually because it was too time-consuming 
+
 lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
           + total_primary + third + gop + ideo_extreme + former_worker, 
           data = candidate)
 stepAIC(lm1,  direction = "backward", na.rm = T) 
 ```
+
+```{r}
+#| label: forward-selection 
+#| eval: false
+
+lm2 <- lm(candpct ~ state_abbrev, data = candidate)
+stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
+          + qualnumber + openseat + PartyDonors1 + college + dist_income
+          + total_primary + third + gop + ideo_extreme + former_worker,
+        direction = "forward")
+
+```
+
