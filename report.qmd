@@ -39,7 +39,7 @@ glimpse(candidate)
 #| label: filter-candidate 
 
 candidate_won <- candidate |>
-  filter(winwin == 1, worker == 1)
+  filter(winwin == 1, worker == 1) #337 observations
   
 ```
 
