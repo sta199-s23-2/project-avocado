@@ -312,3 +312,26 @@ stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
         direction = "forward")
 
 ```
+
+**selected model**
+
+lm(formula = candpct ~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)
+
+This is the model selected through backward selection. It has the lowest AIC and fewer variables than the best model generated through forward selection.
+
+```{r}
+#| label: interaction 
+
+lmInt <- lm(formula = candpct ~ candnumber * quality_cand * qualnumber * openseat * dist_income * total_primary, data = candidate_final)
+
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber * quality_cand * qualnumber * openseat * 
+        dist_income * total_primary, data = candidate_final) |>
+  glance() |>
+  pull(AIC)
+
+```
+conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model. 
+
