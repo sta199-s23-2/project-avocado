@@ -59,9 +59,11 @@ This research question is important for the following reasons. Given that the wo
 
 1.  First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1).
 
-2.  Second, we use the forward model selection method to compare and choose the variables that best predict the dependent variable. Specifically, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. We repeat this process by trying to add more variables and compare the AIC until we find out the best model. Based on the results, we conclude the most prominent factors related to the vote share.
+2.  Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find out the best model. But since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. To see which model selection methods work better and generate more useful results, we also use the stepAIC method to perform the backward model selection. Based on the results, we select the model with the lowest AIC and conclude the most prominent factors related to the vote share as well as the coefficients of the factors.
 
-3.  Using the factors selected, we run an additive and an interactive multiple linear regression model, and compare the results of the two models. Based on the results, we conclude and explain how the factors help contribute to a better performance of working-class representatives in the elections that they won.
+3.  Then, using the factors selected, we also run an interactive multiple linear regression model to see which of the additive and interactive model works better. Based on the results, we select the model with the lower AIC.
+
+4.  Lastly, to get make the results more straightforward and readable, we visualize the results by \[Note: we are confused about this part and we left a comment at the end of the Results section. We might need some help with this part, thanks!\]
 
 # **Results**
 
