@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project title</title>
+<title>Working Class Representative Performance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -162,15 +162,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-and-data" id="toc-introduction-and-data" class="nav-link active" data-scroll-target="#introduction-and-data"><strong>Introduction and Data</strong></a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><strong>Methodology</strong></a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><strong>Results</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project title</h1>
-<p class="subtitle lead">Report</p>
+<h1 class="title">Working Class Representative Performance</h1>
+<p class="subtitle lead">Which factors positively contribute to votes in their favor</p>
 </div>
 
 
@@ -184,39 +192,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Introduction and Data</strong></p>
+<section id="introduction-and-data" class="level1">
+<h1><strong>Introduction and Data</strong></h1>
 <p>The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.</p>
 <p>The authors collected, recorded, and analyzed novel data describing the occupational background of all candidates who competed in the U.S. House primaries between 2008 and 2016.</p>
 <p>The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate’s performance as some of them are only numerical descriptions of vote share.</p>
 <p>This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.</p>
 <p>– Hansen, Eric R.; Treul, Sarah A., 2023, “Replication Data for: Primary Barriers to Working Class Representation”, https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1; Treul_Hansen_Codebook.pdf [fileName] Dataset: Hansen, Eric R.; Treul, Sarah A., 2023, “Replication Data for: Primary Barriers to Working Class Representation”, https://doi.org/10.7910/DVN/YGT1KX, Harvard Dataverse, V1, UNF:6:LlOCRMLIvjECWBDwtT+Xdw== [fileUNF]</p>
-<p><strong>Methodology</strong></p>
+</section>
+<section id="methodology" class="level1">
+<h1><strong>Methodology</strong></h1>
 <p><strong><em>Variables Selection:</em></strong></p>
 <ol type="1">
-<li><p>Dependent variable: <strong>candpct</strong>, which represents the candidate's vote share in the primary election.</p></li>
-<li><p>Independent variables: We select the variables that potentially measure factors related to the candidate's vote share. These selected 14 independent variables include:</p></li>
+<li><p>Dependent variable: <strong>candpct</strong>, which represents the candidate’s vote share in the primary election.</p></li>
+<li><p>Independent variables: We select the variables that potentially measure factors related to the candidate’s vote share. These selected 14 independent variables include:</p></li>
 </ol>
 <ul>
 <li><p>state_abbrev (the state the candidate is from)</p></li>
-<li><p>candnumber (count of opponents in the candidate's primary election)</p></li>
+<li><p>candnumber (count of opponents in the candidate’s primary election)</p></li>
 <li><p>cand_party (the party of the candidate)</p></li>
 <li><p>quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent)</p></li>
 <li><p>qualnumber (count of quality opponents)</p></li>
 <li><p>openseat (whether the incumbent is running for reelection)</p></li>
-<li><p>partyDonors1 (count of donations candidate received from donors to their party's national campaign funds)</p></li>
-<li><p>college (percentage of the congressional district's residents who hold four-year college degrees)</p></li>
+<li><p>partyDonors1 (count of donations candidate received from donors to their party’s national campaign funds)</p></li>
+<li><p>college (percentage of the congressional district’s residents who hold four-year college degrees)</p></li>
 <li><p>dist_income (median income of the congressional district)</p></li>
-<li><p>total_primary (total dollars contributed toward a candidate's campaign funds and outside spending, unit: millions of dollars)</p></li>
+<li><p>total_primary (total dollars contributed toward a candidate’s campaign funds and outside spending, unit: millions of dollars)</p></li>
 <li><p>third (whether candidate runs as a third party or independent)</p></li>
 <li><p>gop (whether the candidate is Republican)</p></li>
-<li><p>ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology)</p></li>
+<li><p>ideo_extreme (absolute value of Bonica’s CFscore measure of candidate ideology)</p></li>
 <li><p>former_worker (whether the candidate used to be a worker but is no longer now)</p></li>
 </ul>
-<p><strong>Results</strong></p>
+<p><strong><em>Analysis Procedure:</em></strong></p>
+<ol type="1">
+<li><p>First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1).</p></li>
+<li><p>Second, we use the forward model selection method to compare and choose the variables that best predict the dependent variable. Specifically, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. We repeat this process by trying to add more variables and compare the AIC until we find out the best model. Based on the results, we conclude the most prominent factors related to the vote share.</p></li>
+<li><p>Using the factors selected, we run an additive and an interactive multiple linear regression model, and compare the results of the two models. Based on the results, we conclude and explain how the factors help contribute to a better performance of working-class representatives in the elections that they won.</p></li>
+</ol>
+</section>
+<section id="results" class="level1">
+<h1><strong>Results</strong></h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraph)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggiraphExtra"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraphExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>candidate <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/Treul_Hansen_Replication_Data.tab"</span>, </span>
@@ -258,7 +281,12 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>candidate_won <span class="ot">&lt;-</span> candidate <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(winwin <span class="sc">==</span> <span class="dv">1</span>, worker <span class="sc">==</span> <span class="dv">1</span>) <span class="co">#337 observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(winwin <span class="sc">==</span> <span class="dv">1</span>, worker <span class="sc">==</span> <span class="dv">1</span>) <span class="co">#337 observations</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>candidate_won_new <span class="ot">&lt;-</span> candidate_won[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">22</span>, <span class="dv">23</span>)]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>candidate_final <span class="ot">&lt;-</span> candidate_won_new <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>()<span class="sc">|&gt;</span> <span class="co">#lowest AIC</span></span>
@@ -491,23 +519,54 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we decided not to do it manually because it was too time-consuming </span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> ideo_extreme <span class="sc">+</span> former_worker, </span>
-<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> candidate)</span>
-<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm1,  <span class="at">direction =</span> <span class="st">"backward"</span>, <span class="at">na.rm =</span> T) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>candidate_won_new <span class="ot">&lt;-</span> candidate_won <span class="sc">|&gt;</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev, <span class="at">data =</span> candidate)</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm2,  <span class="at">scope =</span> <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> ideo_extreme <span class="sc">+</span> former_worker,</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="st">"forward"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we decided not to do it manually because it was too time-consuming </span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> former_worker, </span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> candidate_final)</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm1,  <span class="at">direction =</span> <span class="st">"backward"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev, <span class="at">data =</span> candidate_final)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm2,  <span class="at">scope =</span> <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> former_worker,</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="st">"forward"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>selected model</strong></p>
+<p>lm(formula = candpct ~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)</p>
+<p>This is the model selected through backward selection. It has the lowest AIC and fewer variables than the best model generated through forward selection.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>lmInt <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> candpct <span class="sc">~</span> candnumber <span class="sc">*</span> quality_cand <span class="sc">*</span> qualnumber <span class="sc">*</span> openseat <span class="sc">*</span> dist_income <span class="sc">*</span> total_primary, <span class="at">data =</span> candidate_final)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>()<span class="sc">|&gt;</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(candpct <span class="sc">~</span> candnumber <span class="sc">*</span> quality_cand <span class="sc">*</span> qualnumber <span class="sc">*</span> openseat <span class="sc">*</span> </span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>        dist_income <span class="sc">*</span> total_primary, <span class="at">data =</span> candidate_final) <span class="sc">|&gt;</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -447.1903</code></pre>
+</div>
+</div>
+<p>conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> candpct <span class="sc">~</span> candnumber <span class="sc">+</span> quality_cand <span class="sc">+</span> qualnumber <span class="sc">+</span> </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>    openseat <span class="sc">+</span> dist_income <span class="sc">+</span> total_primary, <span class="at">data =</span> candidate_final)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(lm_model,<span class="at">colorAsFactor =</span> <span class="cn">TRUE</span>,<span class="at">interactive=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>question: <em>Since ggPredict only takes 3 variables, how should we visualize our interaction model?</em></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

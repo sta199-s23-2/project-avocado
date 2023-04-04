@@ -72,6 +72,10 @@ This research question is important for the following reasons. Given that the wo
 library(tidyverse)
 library(tidymodels)
 library(MASS)
+library(ggplot2)
+library(ggiraph)
+install.packages("ggiraphExtra")
+library(ggiraphExtra)
 ```
 
 ```{r}
@@ -315,7 +319,7 @@ stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
 
 **selected model**
 
-lm(formula = candpct ~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)
+lm(formula = candpct \~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)
 
 This is the model selected through backward selection. It has the lowest AIC and fewer variables than the best model generated through forward selection.
 
@@ -333,5 +337,18 @@ linear_reg()|>
   pull(AIC)
 
 ```
-conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model. 
 
+conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model.
+
+```{r}
+#| label: visualization 
+#| eval: false
+
+lm_model <- lm(formula = candpct ~ candnumber + quality_cand + qualnumber + 
+    openseat + dist_income + total_primary, data = candidate_final)
+
+ggPredict(lm_model,colorAsFactor = TRUE,interactive=TRUE)
+
+```
+
+question: *Since ggPredict only takes 3 variables, how should we visualize our interaction model?*
