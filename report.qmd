@@ -83,9 +83,7 @@ library(tidyverse)
 library(tidymodels)
 library(MASS)
 library(ggplot2)
-library(ggiraph)
-install.packages("ggiraphExtra")
-library(ggiraphExtra)
+
 ```
 
 ```{r}
@@ -110,200 +108,17 @@ candidate_final <- candidate_won_new |>
 ```
 
 ```{r}
-#| label: forward-elimination-step1
+#| label: count-observations 
 
-linear_reg()|> #lowest AIC
-  set_engine("lm") |>
-  fit(candpct ~ cand_party, data = candidate_won) |>
-  glance() |>
-  pull(AIC) 
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ total_primary, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ quality_cand, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ state_abbrev, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ openseat, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ qualnumber, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ PartyDonors1, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ college, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ dist_income, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ third, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ gop, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ ideo_extreme, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ former_worker, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
+candidate_final |>
+  nrow() 
 ```
 
-```{r}
-#| label: forward-elimination-step2
 
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + state_abbrev, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + cand_party, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|> #lowest AIC
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + quality_cand, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + qualnumber, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + openseat, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + PartyDonors1, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + college, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + dist_income, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + total_primary, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + third, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + gop, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + ideo_extreme, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + former_worker, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-```
-
-```{r}
-#| label: forward-elimination-step3
-
-linear_reg()|> 
-  set_engine("lm") |>
-  fit(candpct ~ candnumber + quality_cand, data = candidate_won) |>
-  glance() |>
-  pull(AIC)
-
-```
-
-```{r}
-#| label: drop-na
-
-candidate_won_new <- candidate_won |> 
-  drop_na()
-
-```
 
 ```{r}
 #| label: backward-selection 
-#| eval: false
 
-#we decided not to do it manually because it was too time-consuming 
 
 lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
@@ -315,7 +130,6 @@ stepAIC(lm1,  direction = "backward")
 
 ```{r}
 #| label: forward-selection 
-#| eval: false
 
 
 lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
@@ -332,6 +146,8 @@ stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
 lm(formula = candpct \~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)
 
 This is the model selected through backward selection. It has the lowest AIC and fewer variables than the best model generated through forward selection.
+
+we also picked the top three variables: candnumber, dist_income, total_primary
 
 ```{r}
 #| label: interaction 
@@ -351,14 +167,47 @@ linear_reg()|>
 conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model.
 
 ```{r}
-#| label: visualization 
-#| eval: false
+#| label: dataset-4-visualization 
 
-lm_model <- lm(formula = candpct ~ candnumber + quality_cand + qualnumber + 
-    openseat + dist_income + total_primary, data = candidate_final)
-
-ggPredict(lm_model,colorAsFactor = TRUE,interactive=TRUE)
+candidate_final <- candidate_final |>
+  mutate(candnumber2 = if_else(candnumber < 4, "small pool of candidates", 
+                               "large pool of candidates")) |>
+  mutate(primary2 = if_else(total_primary == 0.00000, "NA", "Other"))
 
 ```
 
-question: *Since ggPredict only takes 3 variables, how should we visualize our interaction model?*
+```{r}
+#| label: summary-stas-for-variables-of-interest 
+
+  
+```
+
+```{r}
+#| label: visualization 
+
+candidate_final |>
+  ggplot(aes(x = dist_income, y = candpct, color = total_primary)) +
+  geom_point() +
+  scale_color_gradient(low = "blue", high = "orange", 
+                       breaks = 
+                         c(0, 0.005, 0.1, 0.5, 1.0, 1.5)) +
+  geom_point(data = subset(candidate_final, primary2 == "NA"), size = 0.4, 
+             color = "grey") +
+  geom_smooth(method = lm, se = FALSE, color = "black") +
+  facet_wrap(~ candnumber2) +
+  theme_classic() +
+  labs(x = "median income of the congressional district (100k)", 
+       y = "vote share in the primary election (%)", 
+       color = "campaign funds\n& outside spending\n(million$)", 
+       title = "Primary predictors to working-class candiates vote share",
+       subtitle = "among candidates that won the primary elections", 
+       caption = "**points marked grey are those with 0$
+       campaign funds & outside spending as indicated in the dataset"
+       ) 
+
+
+
+
+
+```
+
