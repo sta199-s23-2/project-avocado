@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -195,15 +132,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction-and-data" class="level1">
 <h1><strong>Introduction and Data</strong></h1>
+<p>Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.^{1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.} Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?</p>
 <p>The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.</p>
 <p>The authors collected, recorded, and analyzed novel data describing the occupational background of all candidates who competed in the U.S. House primaries between 2008 and 2016.</p>
 <p>The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate’s performance as some of them are only numerical descriptions of vote share.</p>
+<p><strong>Research Question</strong>: What factors contribute to votes in working class representatives’ favor?</p>
 <p>This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.</p>
+<p><strong>Hypothesis</strong> Based on our understanding of factors contributing to candidate success, we believe that total_primary (total dollars contributed toward a candidate’s campaign funds and outside spending in dollars), quality_candidate (incumbent/quality status of the candidate), and qualnumber (number of quality opponents) will most impact candidate success, with greater campaign money, incumbent status, and a lower number of quality components resulting in higher candidate success (i.e., contribute to votes in working class representatives’ favor).</p>
 </section>
 <section id="literature" class="level1">
 <h1><strong>Literature</strong></h1>
-<p><strong>Primary Barriers to Working Class Representation</strong></p>
-<p>Treul, S. A., &amp; Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914</p>
+<p><strong>Primary Barriers to Working Class Representation</strong> ^{Treul, S. A., &amp; Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914}</p>
 <p>This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al.&nbsp;found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al.&nbsp;suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates.&nbsp;</p>
 <p>This article uses the Primary Barriers to Working Class Representation dataset to analyze election results based on whether the candidates were working class and then analyzes factors that affected why working class candidates did not win elections. Our research would seek to understand how working class candidates overcame barriers to winning primary elections by analyzing factors that were outliers among candidates that did win the election.&nbsp;</p>
 </section>
@@ -232,29 +171,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong><em>Analysis Procedure:</em></strong></p>
 <ol type="1">
-<li><p>First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1).</p></li>
-<li><p>Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find out the best model. But since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. To see which model selection methods work better and generate more useful results, we also use the stepAIC method to perform the backward model selection. Based on the results, we select the model with the lowest AIC and conclude the most prominent factors related to the vote share as well as the coefficients of the factors.</p></li>
-<li><p>Then, using the factors selected, we also run an interactive multiple linear regression model to see which of the additive and interactive model works better. Based on the results, we select the model with the lower AIC.</p></li>
-<li><p>Lastly, to get make the results more straightforward and readable, we visualize the results by&nbsp;[Note: we are confused about this part and we left a comment at the end of the Results section. We might need some help with this part, thanks!]</p></li>
+<li><p>First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). After this, we have 337 observations left.</p></li>
+<li><p>Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps us to stepwisely find out the best model that the given variables could fit. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive.</p></li>
 </ol>
-</section>
-<section id="results" class="level1">
-<h1><strong>Results</strong></h1>
+<p>Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find out the best model. But since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. We choose the stepAIC method because it lists the procedure of the forward selection and it can be used to simplify the model of choice without reducing its predictive capabilities, which is consistent with our goal. Based on the result of the stepAIC, we get a best-fit model from the forward selection.</p>
+<p>To see which model selection methods work better and generate more useful results, we also use the stepAIC method to perform the backward model selection and get a best-fit model from the backward model selection.</p>
+<p>Then, from the models produced from the forward and backward selection, we select the model with the lowest AIC. Based on this model, we conclude the most prominent factors related to the vote share as well as the coefficients of the factors.</p>
+<ol start="3" type="1">
+<li><p>Then, using the factors selected, we also run an interactive multiple linear regression model to see which of the additive and interactive model works better. Based on the results, we select the model with the lower AIC.</p></li>
+<li><p>Lastly, to make the results more straightforward and readable, we visualize the results. We choose the top three prominent variables (the top three variables with the highest coefficient,which indicate they are more powerful and decisive factors) in our final model, and use ggplot in R to create a visualization including two dot plots that shows the relationship between the three variables and the response variable (the candidates’ vote share in the primary selection). We choose to use the facet of two dot plots because it helps to visualize the relationship of all three explanatory variables and the response variable in a single visualization. As a note, since our top three variables are all numerical, to make the graph more direct and informative, we group the variable candnumber (count of opponents) into small pools (1-3 opponents) and large pools (4 or more opponents). In our final visualization, our x-axis represents median income of the congressional district($100k), y-axis represents vote share in primary election (%), while the side-by-side graphs are based on candnumber.</p></li>
+</ol>
+<p><strong>Summary Statistics</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>candidate <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/Treul_Hansen_Replication_Data.tab"</span>, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(candidate, <span class="at">file =</span> <span class="st">"data/candidate.csv"</span>, <span class="at">col.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in write.csv(candidate, file = "data/candidate.csv", col.names = TRUE):
 attempt to set 'col.names' ignored</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(candidate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 7,869
 Columns: 24
@@ -285,27 +220,26 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>candidate_won <span class="ot">&lt;-</span> candidate <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(winwin <span class="sc">==</span> <span class="dv">1</span>, worker <span class="sc">==</span> <span class="dv">1</span>) <span class="co">#337 observations</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>candidate_won_new <span class="ot">&lt;-</span> candidate_won[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">22</span>, <span class="dv">23</span>)]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>candidate_final <span class="ot">&lt;-</span> candidate_won_new <span class="sc">|&gt;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>candidate_final <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mean_candpct mean_candnumber mean_qualnumber mean_total_primary
+1    0.8035573        2.012821       0.7051282         0.06642554
+  mean_dist_income
+1        0.5168471</code></pre>
+</div>
+</div>
+<p>The mean candidate vote share in the vote share is 0.8035573, the mean number of candidates (opponents) is 2.012821, the mean number of quality candidates (opponents) is 0.7051282, the mean total dollars towards campaign funds and outside spending is 0.06642554 million dollars, and the mean district income is $51,684.71.</p>
+</section>
+<section id="results" class="level1">
+<h1><strong>Results</strong></h1>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 312</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> former_worker, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> candidate_final)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm1,  <span class="at">direction =</span> <span class="st">"backward"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Start:  AIC=-1216.6
 candpct ~ state_abbrev + candnumber + cand_party + quality_cand + 
@@ -427,13 +361,8 @@ Coefficients:
      -0.14245        0.15614  </code></pre>
 </div>
 </div>
+<p>The best-fit model from the backward selection process has an AIC of -1236.62.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(candpct <span class="sc">~</span> state_abbrev, <span class="at">data =</span> candidate_final)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stepAIC</span>(lm2,  <span class="at">scope =</span> <span class="sc">~</span> state_abbrev <span class="sc">+</span> candnumber <span class="sc">+</span> cand_party <span class="sc">+</span> quality_cand</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> qualnumber <span class="sc">+</span> openseat <span class="sc">+</span> PartyDonors1 <span class="sc">+</span> college <span class="sc">+</span> dist_income</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>          <span class="sc">+</span> total_primary <span class="sc">+</span> third <span class="sc">+</span> gop <span class="sc">+</span> former_worker,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="st">"forward"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Start:  AIC=-919.93
 candpct ~ state_abbrev
@@ -575,54 +504,23 @@ state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber    quality_cand
     -0.0436273       0.0943456      -0.1701731       0.0668427       0.0004865  </code></pre>
 </div>
 </div>
+<p>The best-fit model from the forward selection process has an AIC of -1221.48.</p>
 <p><strong>selected model</strong></p>
+<p>We end up choosing the model we get from backward selection over the model from the forward selection because the backward selection model yields a lower AIC, indicating that the model is better. The variables includes in the model are candnumber, quality_cand, qualnumber, openseat, dist_income, total_primary</p>
 <p>lm(formula = candpct ~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)</p>
 <p>This is the model selected through backward selection. It has the lowest AIC and fewer variables than the best model generated through forward selection.</p>
 <p>we also picked the top three variables: candnumber, dist_income, total_primary</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lmInt <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> candpct <span class="sc">~</span> candnumber <span class="sc">*</span> quality_cand <span class="sc">*</span> qualnumber <span class="sc">*</span> openseat <span class="sc">*</span> dist_income <span class="sc">*</span> total_primary, <span class="at">data =</span> candidate_final)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>()<span class="sc">|&gt;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(candpct <span class="sc">~</span> candnumber <span class="sc">*</span> quality_cand <span class="sc">*</span> qualnumber <span class="sc">*</span> openseat <span class="sc">*</span> </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        dist_income <span class="sc">*</span> total_primary, <span class="at">data =</span> candidate_final) <span class="sc">|&gt;</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -447.1903</code></pre>
 </div>
 </div>
+<p>AIC for interaction model: -447.1903 Since the AIC for the interaction model is much larger than the additive model we get from the backward selection, we will stick to the additive model.</p>
 <p>conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>candidate_final <span class="ot">&lt;-</span> candidate_final <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">candnumber2 =</span> <span class="fu">if_else</span>(candnumber <span class="sc">&lt;</span> <span class="dv">4</span>, <span class="st">"small pool of candidates"</span>, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"large pool of candidates"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">primary2 =</span> <span class="fu">if_else</span>(total_primary <span class="sc">==</span> <span class="fl">0.00000</span>, <span class="st">"NA"</span>, <span class="st">"Other"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>candidate_final <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> dist_income, <span class="at">y =</span> candpct, <span class="at">color =</span> total_primary)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"orange"</span>, </span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> </span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.005</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">1.5</span>)) <span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(candidate_final, primary2 <span class="sc">==</span> <span class="st">"NA"</span>), <span class="at">size =</span> <span class="fl">0.4</span>, </span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> candnumber2) <span class="sc">+</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"median income of the congressional district (100k)"</span>, </span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"vote share in the primary election (%)"</span>, </span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"campaign funds</span><span class="sc">\n</span><span class="st">&amp; outside spending</span><span class="sc">\n</span><span class="st">(million$)"</span>, </span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Primary predictors to working-class candiates vote share"</span>,</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"among candidates that won the primary elections"</span>, </span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"**points marked grey are those with 0$</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="st">       campaign funds &amp; outside spending as indicated in the dataset"</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>       ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -630,6 +528,9 @@ state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber    quality_cand
 <p><img src="report_files/figure-html/visualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p><strong>Discussion</strong></p>
+<p>While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate’s campaign funds positively influences a candidate’s success. Additionally, the median income of the congressional district negatively influences a candidate’s success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them.</p>
+<p><strong>Conclusion</strong> The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate’s success. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns.</p>
 
 
 </section>

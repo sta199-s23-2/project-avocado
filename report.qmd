@@ -4,10 +4,13 @@ subtitle: "Which factors positively contribute to votes in their favor"
 format: html
 editor: visual
 execute:
-  echo: true
+  echo: false
 ---
 
 # **Introduction and Data**
+Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.^{1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.} Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?
+
+
 
 The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.
 
@@ -15,13 +18,16 @@ The authors collected, recorded, and analyzed novel data describing the occupati
 
 The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate's performance as some of them are only numerical descriptions of vote share.
 
+**Research Question**: What factors contribute to votes in working class representatives’ favor? 
+
 This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.
+
+**Hypothesis**
+Based on our understanding of factors contributing to candidate success, we believe that total_primary (total dollars contributed toward a candidate's campaign funds and outside spending in dollars), quality_candidate (incumbent/quality status of the candidate), and qualnumber (number of quality opponents) will most impact candidate success, with greater campaign money, incumbent status, and a lower number of quality components resulting in higher candidate success (i.e., contribute to votes in working class representatives’ favor). 
 
 # **Literature**
 
-**Primary Barriers to Working Class Representation**
-
-Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
+**Primary Barriers to Working Class Representation** ^{Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914}
 
 This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al. found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al. suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates. 
 
@@ -65,15 +71,22 @@ This article uses the Primary Barriers to Working Class Representation dataset t
 
 ***Analysis Procedure:***
 
-1.  First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1).
+1. First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). After this, we have 337 observations left.
 
-2.  Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find out the best model. But since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. To see which model selection methods work better and generate more useful results, we also use the stepAIC method to perform the backward model selection. Based on the results, we select the model with the lowest AIC and conclude the most prominent factors related to the vote share as well as the coefficients of the factors.
+2. Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps us to stepwisely find out the best model that the given variables could fit. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive. 
+
+Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find out the best model. But since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. We choose the stepAIC method because it lists the procedure of the forward selection and it can be used to simplify the model of choice without reducing its predictive capabilities, which is consistent with our goal. Based on the result of the stepAIC, we get a best-fit model from the forward selection.
+
+To see which model selection methods work better and generate more useful results, we also use the stepAIC method to perform the backward model selection and get a best-fit model from the backward model selection.
+
+Then, from the models produced from the forward and backward selection, we select the model with the lowest AIC. Based on this model, we conclude the most prominent factors related to the vote share as well as the coefficients of the factors.
+
 
 3.  Then, using the factors selected, we also run an interactive multiple linear regression model to see which of the additive and interactive model works better. Based on the results, we select the model with the lower AIC.
 
-4.  Lastly, to get make the results more straightforward and readable, we visualize the results by \[Note: we are confused about this part and we left a comment at the end of the Results section. We might need some help with this part, thanks!\]
+4.  Lastly, to make the results more straightforward and readable, we visualize the results. We choose the top three prominent variables (the top three variables with the highest coefficient,which indicate they are more powerful and decisive factors) in our final model, and use ggplot in R to create a visualization including two dot plots that shows the relationship between the three variables and the response variable (the candidates’ vote share in the primary selection). We choose to use the facet of two dot plots because it helps to visualize the relationship of all three explanatory variables and the response variable in a single visualization. As a note, since our top three variables are all numerical, to make the graph more direct and informative, we group the variable candnumber (count of opponents) into small pools (1-3 opponents) and large pools (4 or more opponents). In our final visualization, our x-axis represents median income of the congressional district($100k), y-axis represents vote share in primary election (%), while the side-by-side graphs are based on candnumber.
 
-# **Results**
+**Summary Statistics** 
 
 ```{r}
 #| label: load-pkgs
@@ -83,7 +96,9 @@ library(tidyverse)
 library(tidymodels)
 library(MASS)
 library(ggplot2)
-
+library(ggiraph)
+install.packages("ggiraphExtra")
+library(ggiraphExtra)
 ```
 
 ```{r}
@@ -108,6 +123,24 @@ candidate_final <- candidate_won_new |>
 ```
 
 ```{r}
+#| label: summary-statistics 
+
+candidate_final |>
+  summarize(
+    mean_candpct = mean(candpct), 
+    mean_candnumber = mean(candnumber), 
+    mean_qualnumber = mean(qualnumber), 
+    mean_total_primary = mean(total_primary),
+    mean_dist_income = mean(dist_income)
+  )
+```
+
+The mean candidate vote share in the vote share is 0.8035573, the mean number of candidates (opponents) is 2.012821, the mean number of quality candidates (opponents) is 0.7051282, the mean total dollars towards campaign funds and outside spending is 0.06642554 million dollars, and the mean district income is $51,684.71.
+
+
+# **Results**
+
+```{r}
 #| label: count-observations 
 
 candidate_final |>
@@ -128,6 +161,8 @@ stepAIC(lm1,  direction = "backward")
 
 ```
 
+The best-fit model from the backward selection process has an AIC of -1236.62.
+
 ```{r}
 #| label: forward-selection 
 
@@ -141,7 +176,12 @@ stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
 
 ```
 
+The best-fit model from the forward selection process has an AIC of -1221.48.
+
 **selected model**
+
+We end up choosing the model we get from backward selection over the model from the forward selection because the backward selection model yields a lower AIC, indicating that the model is better.
+The variables includes in the model are candnumber, quality_cand, qualnumber, openseat, dist_income, total_primary
 
 lm(formula = candpct \~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)
 
@@ -164,6 +204,9 @@ linear_reg()|>
 
 ```
 
+AIC for interaction model: -447.1903
+Since the AIC for the interaction model is much larger than the additive model we get from the backward selection, we will stick to the additive model.
+
 conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model.
 
 ```{r}
@@ -177,12 +220,6 @@ candidate_final <- candidate_final |>
 ```
 
 ```{r}
-#| label: summary-stas-for-variables-of-interest 
-
-  
-```
-
-```{r}
 #| label: visualization 
 
 candidate_final |>
@@ -190,7 +227,7 @@ candidate_final |>
   geom_point() +
   scale_color_gradient(low = "blue", high = "orange", 
                        breaks = 
-                         c(0, 0.005, 0.1, 0.5, 1.0, 1.5)) +
+                         c(0, 0.1, 0.5, 1.0, 1.5)) +
   geom_point(data = subset(candidate_final, primary2 == "NA"), size = 0.4, 
              color = "grey") +
   geom_smooth(method = lm, se = FALSE, color = "black") +
@@ -210,4 +247,11 @@ candidate_final |>
 
 
 ```
+
+**Discussion** 
+
+While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate's campaign funds positively influences a candidate’s success. Additionally, the median income of the congressional district negatively influences a candidate’s success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them. 
+
+**Conclusion**
+The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate's success. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns.
 
