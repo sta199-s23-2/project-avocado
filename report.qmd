@@ -96,9 +96,7 @@ library(tidyverse)
 library(tidymodels)
 library(MASS)
 library(ggplot2)
-library(ggiraph)
-install.packages("ggiraphExtra")
-library(ggiraphExtra)
+
 ```
 
 ```{r}
@@ -207,7 +205,7 @@ linear_reg()|>
 AIC for interaction model: -447.1903
 Since the AIC for the interaction model is much larger than the additive model we get from the backward selection, we will stick to the additive model.
 
-conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original addictive model.
+conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original additive model.
 
 ```{r}
 #| label: dataset-4-visualization 
