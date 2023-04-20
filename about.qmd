@@ -4,10 +4,12 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+This project was developed by **Team Avocado** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
 
--   Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).
--   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
--   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
--   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
--   ...
+-   Team member 1: Helen Pertsemlidis, graduating in 2026, majoring in Mathematics.
+
+-   Team member 2: Maia Kotelanski, graduating in 2025, majoring in Biology, with a minor in Religion and a certificate in Health Policy.
+
+-   Team member 3: Cai Liu, graduating in 2024, majoring in Psychology & Sociology, with a minor in Philosophy.
+
+-   Team member 4: Alina Yin, graduating in 2026, majoring in Computer Science & Statistics, with a minor in Education.
