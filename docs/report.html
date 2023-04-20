@@ -136,26 +136,27 @@ ul.task-list li input[type="checkbox"] {
 <p>The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.</p>
 <p>The authors collected, recorded, and analyzed novel data describing the occupational background of all candidates who competed in the U.S. House primaries between 2008 and 2016.</p>
 <p>The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate’s performance as some of them are only numerical descriptions of vote share.</p>
+<p>We do not have any ethical concerns about the data. We hope that our research will encourage rather prevent working-class people from running for office.</p>
 <p><strong>Variables:</strong></p>
 <ol type="1">
 <li><p>Dependent variable: <strong>candpct</strong>, which represents the candidate’s vote share in the primary election.</p></li>
 <li><p>Independent variables: We select the variables that potentially measure factors related to the candidate’s vote share. These selected 14 independent variables include:</p></li>
 </ol>
 <ul>
-<li><p>state_abbrev (the state the candidate is from)</p></li>
-<li><p>candnumber (count of opponents in the candidate’s primary election)</p></li>
-<li><p>cand_party (the party of the candidate)</p></li>
-<li><p>quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent)</p></li>
-<li><p>qualnumber (count of quality opponents)</p></li>
-<li><p>openseat (whether the incumbent is running for reelection)</p></li>
-<li><p>partyDonors1 (count of donations candidate received from donors to their party’s national campaign funds)</p></li>
-<li><p>college (percentage of the congressional district’s residents who hold four-year college degrees)</p></li>
-<li><p>dist_income (median income of the congressional district)</p></li>
-<li><p>total_primary (total dollars contributed toward a candidate’s campaign funds and outside spending, unit: millions of dollars)</p></li>
-<li><p>third (whether candidate runs as a third party or independent)</p></li>
-<li><p>gop (whether the candidate is Republican)</p></li>
+<li><p>state_abbrev (the state the candidate is from) – categorical</p></li>
+<li><p>candnumber (count of opponents in the candidate’s primary election) – quantitative but later factored into categorical</p></li>
+<li><p>cand_party (the party of the candidate) – categorcial</p></li>
+<li><p>quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent) – categorical</p></li>
+<li><p>qualnumber (count of quality opponents) – quantitative</p></li>
+<li><p>openseat (whether the incumbent is running for reelection) – categorical</p></li>
+<li><p>partyDonors1 (count of donations candidate received from donors to their party’s national campaign funds) – quantitative</p></li>
+<li><p>college (percentage of the congressional district’s residents who hold four-year college degrees) – quantitative</p></li>
+<li><p>dist_income (median income of the congressional district) – quantitative</p></li>
+<li><p>total_primary (total dollars contributed toward a candidate’s campaign funds and outside spending, unit: millions of dollars) – quantitative</p></li>
+<li><p>third (whether candidate runs as a third party or independent) – categorical</p></li>
+<li><p>gop (whether the candidate is Republican) – categorical</p></li>
 <li><p>ideo_extreme (absolute value of Bonica’s CFscore measure of candidate ideology)</p></li>
-<li><p>former_worker (whether the candidate used to be a worker but is no longer now)</p></li>
+<li><p>former_worker (whether the candidate used to be a worker but is no longer now) – categorical</p></li>
 </ul>
 <p><strong>Research Question</strong>: What factors contribute to votes in working class representatives’ favor?</p>
 <p>This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.</p>
@@ -241,8 +242,11 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 <h1><strong>Methodology</strong></h1>
 <p><strong><em>Analysis Procedure:</em></strong></p>
 <ol type="1">
-<li><p>First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). After this, we have 337 observations left.</p></li>
-<li><p>Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps us to stepwisely find out the best model that the given variables could fit. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive.</p></li>
+<li>To start off, we filter the dataset. First, we keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). We do this because we want to focus on working-class candidates who have won the election in our research. Then, we select the columns for the variables we will use. Specifically, we drop 8 columns (worker_current_recode, race_id, year, dem_vote, candvotes, tvotes, ideo_extreme, qualbin). We explained these variables and why we drop them in the “variables” section above. Lasly, we drop the rows with “N/A” for any of our selected variables since this would affect the accuracy of our model fitting and selection process. After all these procedures, we have 337 observations left.</li>
+</ol>
+<p>Our main methodology to answer the research question is multivariate linear regression. We choose to use multivariate linear regression as our methodology to answer the research question because we were looking for a method that determines the relative strength of explanatory variables and finds trends in data with respect to our response variable (candpct), which linear regression does.</p>
+<ol start="2" type="1">
+<li>Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps us to stepwisely find out the best model that the given variables could fit. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive.</li>
 </ol>
 <p>Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model, and find out the best. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find out the best model. But since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. We choose the stepAIC method because it lists the procedure of the forward selection and it can be used to simplify the model of choice without reducing its predictive capabilities, which is consistent with our goal. Based on the result of the stepAIC, we get a best-fit model from the forward selection.</p>
 <p>To see which model selection methods work better and generate more useful results, we also use the stepAIC method to perform the backward model selection and get a best-fit model from the backward model selection.</p>
@@ -550,7 +554,7 @@ state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber    quality_cand
 </div>
 <p><strong>Discussion</strong></p>
 <p>While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate’s campaign funds positively influences a candidate’s success. Additionally, the median income of the congressional district negatively influences a candidate’s success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them.</p>
-<p>The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate’s success. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns.</p>
+<p>The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate’s success. Therefore, future research should collect and explore data on other factors that could potentially impact working class candidate success, in order to determine causation rather than correlation. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns. Future research should then focus on the efficacy of specific campaign strategies given the demographics of the candidate’s congressional district.</p>
 
 
 </section>

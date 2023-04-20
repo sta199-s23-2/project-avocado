@@ -18,39 +18,42 @@ The authors collected, recorded, and analyzed novel data describing the occupati
 
 The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate's performance as some of them are only numerical descriptions of vote share.
 
+We do not have any ethical concerns about the data. We hope that our research will encourage rather prevent working-class people from running for office. 
+
+
 **Variables:**
 
 1.  Dependent variable: **candpct**, which represents the candidate's vote share in the primary election.
 
 2.  Independent variables: We select the variables that potentially measure factors related to the candidate's vote share. These selected 14 independent variables include:
 
--   state_abbrev (the state the candidate is from)
+-   state_abbrev (the state the candidate is from) -- categorical 
 
--   candnumber (count of opponents in the candidate's primary election)
+-   candnumber (count of opponents in the candidate's primary election) -- quantitative but later factored into categorical
 
--   cand_party (the party of the candidate)
+-   cand_party (the party of the candidate) -- categorcial 
 
--   quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent)
+-   quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent) -- categorical
 
--   qualnumber (count of quality opponents)
+-   qualnumber (count of quality opponents) -- quantitative 
 
--   openseat (whether the incumbent is running for reelection)
+-   openseat (whether the incumbent is running for reelection) -- categorical
 
--   partyDonors1 (count of donations candidate received from donors to their party's national campaign funds)
+-   partyDonors1 (count of donations candidate received from donors to their party's national campaign funds) -- quantitative
 
--   college (percentage of the congressional district's residents who hold four-year college degrees)
+-   college (percentage of the congressional district's residents who hold four-year college degrees) -- quantitative
 
--   dist_income (median income of the congressional district)
+-   dist_income (median income of the congressional district) -- quantitative
 
--   total_primary (total dollars contributed toward a candidate's campaign funds and outside spending, unit: millions of dollars)
+-   total_primary (total dollars contributed toward a candidate's campaign funds and outside spending, unit: millions of dollars) -- quantitative
 
--   third (whether candidate runs as a third party or independent)
+-   third (whether candidate runs as a third party or independent) -- categorical 
 
--   gop (whether the candidate is Republican)
+-   gop (whether the candidate is Republican) -- categorical 
 
 -   ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology)
 
--   former_worker (whether the candidate used to be a worker but is no longer now)
+-   former_worker (whether the candidate used to be a worker but is no longer now) -- categorical 
 
 **Research Question**: What factors contribute to votes in working class representatives’ favor? 
 
@@ -162,7 +165,9 @@ This article uses the Primary Barriers to Working Class Representation dataset t
 
 ***Analysis Procedure:***
 
-1. First, we filter the dataset and keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). After this, we have 337 observations left.
+1. To start off, we filter the dataset. First, we keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). We do this because we want to focus on working-class candidates who have won the election in our research. Then, we select the columns for the variables we will use. Specifically, we drop 8 columns (worker_current_recode, race_id, year, dem_vote, candvotes, tvotes, ideo_extreme, qualbin). We explained these variables and why we drop them in the “variables” section above. Lasly, we drop the rows with “N/A” for any of our selected variables since this would affect the accuracy of our model fitting and selection process. After all these procedures, we have 337 observations left.
+
+Our main methodology to answer the research question is multivariate linear regression. We choose to use multivariate linear regression as our methodology to answer the research question because we were looking for a method that determines the relative strength of explanatory variables and finds trends in data with respect to our response variable (candpct), which linear regression does. 
 
 2. Second, we use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps us to stepwisely find out the best model that the given variables could fit. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive. 
 
@@ -294,5 +299,4 @@ candidate_final |>
 While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate's campaign funds positively influences a candidate’s success. Additionally, the median income of the congressional district negatively influences a candidate’s success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them. 
 
 
-The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate's success. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns.
-
+The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate's success. Therefore, future research should collect and explore data on other factors that could potentially impact working class candidate success, in order to determine causation rather than correlation. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns. Future research should then focus on the efficacy of specific campaign strategies given the demographics of the candidate’s congressional district. 
