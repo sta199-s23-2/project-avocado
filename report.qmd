@@ -8,7 +8,7 @@ execute:
 ---
 
 # **Introduction and Data**
-Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.^{1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.} Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?
+Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.^[1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.] Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?
 
 
 
@@ -27,7 +27,7 @@ Based on our understanding of factors contributing to candidate success, we beli
 
 # **Literature**
 
-**Primary Barriers to Working Class Representation** ^{Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914}
+**Primary Barriers to Working Class Representation** ^[Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914]
 
 This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul et al. found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul et al. suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates. 
 
@@ -122,6 +122,8 @@ candidate_final <- candidate_won_new |>
 
 ```{r}
 #| label: summary-statistics 
+#| message: false 
+#| warning: false 
 
 candidate_final |>
   summarize(
@@ -145,11 +147,11 @@ candidate_final |>
   nrow() 
 ```
 
-
+There are 312 observations in candidate_final. 
 
 ```{r}
 #| label: backward-selection 
-
+#| message: false
 
 lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
           + qualnumber + openseat + PartyDonors1 + college + dist_income
@@ -163,6 +165,7 @@ The best-fit model from the backward selection process has an AIC of -1236.62.
 
 ```{r}
 #| label: forward-selection 
+#| message: false
 
 
 lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
@@ -189,7 +192,7 @@ we also picked the top three variables: candnumber, dist_income, total_primary
 
 ```{r}
 #| label: interaction 
-
+#| message: false
 lmInt <- lm(formula = candpct ~ candnumber * quality_cand * qualnumber * openseat * dist_income * total_primary, data = candidate_final)
 
 
@@ -209,6 +212,7 @@ conclusion: the interactive multiple linear regression model gave us a worse AIC
 
 ```{r}
 #| label: dataset-4-visualization 
+#| message: false
 
 candidate_final <- candidate_final |>
   mutate(candnumber2 = if_else(candnumber < 4, "small pool of candidates", 
@@ -218,7 +222,8 @@ candidate_final <- candidate_final |>
 ```
 
 ```{r}
-#| label: visualization 
+#| label: visualization
+#| message: false 
 
 candidate_final |>
   ggplot(aes(x = dist_income, y = candpct, color = total_primary)) +
