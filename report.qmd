@@ -305,7 +305,7 @@ candidate_final |>
 
 ```
 
-**Discussion**
+# **Discussions**
 
 While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate's campaign funds positively influences a candidate's success. Additionally, the median income of the congressional district negatively influences a candidate's success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them.
 
