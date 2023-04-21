@@ -159,13 +159,52 @@ candidate_final |>
   geom_point() +
   labs(x = "median income of the congressional district (100k)", 
        y = "campaign funds & outside spending (million$)", 
-       title = "Is there a correlation between income and campaign spending>", 
+       title = "Is there a correlation between income and campaign spending?", 
        subtitle = 
          "for congressional districts where working-class candidates won") +
   theme_classic()
 ```
 
 The correlation between percentage of the median income of the residents and the campaign spending is non-linear, positive, but not as strong as the previous ones. The positive correlation makes sense, but given a lot of the observations in the data set had 0\$ as its campaign funding and outside spending, this may not be the comprehensive picture.
+```{r}
+#| label: EDA3
+
+candidate_final <- candidate_final |>
+  mutate(quality_cand = as.factor(quality_cand))
+
+
+candidate_final |>
+  ggplot(aes(x = quality_cand, y = candnumber)) +
+  geom_count(color = "#009E73") +
+  scale_x_discrete(labels = c("nonquality\nnonincumbent", 
+                              "quality\nnonincumbent", "incumbent")) +
+  scale_y_continuous(breaks = c(0, 5, 10), labels = c("0", "5", "10")) +
+  labs(x = "", 
+       y = "number of candidates", 
+       title = "The Quality and Quantity of Candidates", 
+       size = "number of elections") +
+  theme_classic()
+
+```
+Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successsfully exceled a large number of opponents. 
+
+```{r}
+#| label: EDA4
+
+candidate_final |>
+  ggplot(aes(x = quality_cand, y = candpct)) + 
+  geom_violin(fill = "#B2DF8A") +
+  scale_x_discrete(labels = c("nonquality\nnonincumbent", 
+                              "quality\nnonincumbent", "incumbent")) +
+  labs(
+    x = " ",
+    y = "vote share in the primary election (%)",
+    title = "Does the quality of candidates influence the vote share?"
+  ) +
+  theme_classic()
+
+```
+Based on the violin plots, we can see that when the candidate is an incumbent, they tend to garner a large vote share, the distribution of which is highky skewed. At the same time, nonquality nonincumbent, unsurprisingly, has the lowest vote share and also the largest spread and variance in terms of the vote share. 
 
 **Hypothesis** Based on our understanding of factors contributing to candidate success, we believe that total_primary (total dollars contributed toward a candidate's campaign funds and outside spending in dollars), quality_candidate (incumbent/quality status of the candidate), and qualnumber (number of quality opponents) will most impact candidate success, with greater campaign money, incumbent status, and a lower number of quality components resulting in higher candidate success (i.e., contribute to votes in working class representatives' favor).
 
@@ -281,11 +320,11 @@ candidate_final <- candidate_final |>
 
 candidate_final |>
   ggplot(aes(x = dist_income, y = candpct, color = total_primary)) +
-  geom_point() +
+  geom_point(size = 2) +
   scale_color_gradient(low = "blue", high = "orange", 
                        breaks = 
                          c(0, 0.1, 0.5, 1.0, 1.5)) +
-  geom_point(data = subset(candidate_final, primary2 == "NA"), size = 0.4, 
+  geom_point(data = subset(candidate_final, primary2 == "NA"), size = 0.8, 
              color = "grey") +
   geom_smooth(method = lm, se = FALSE, color = "black") +
   facet_wrap(~ candnumber2) +
