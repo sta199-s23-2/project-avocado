@@ -107,6 +107,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#literature" id="toc-literature" class="nav-link" data-scroll-target="#literature"><strong>Literature</strong></a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><strong>Methodology</strong></a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><strong>Results</strong></a></li>
+  <li><a href="#discussions" id="toc-discussions" class="nav-link" data-scroll-target="#discussions"><strong>Discussions</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -138,6 +139,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate’s performance as some of them are only numerical descriptions of vote share.</p>
 <p>We do not have any ethical concerns about the data. We hope that our research will encourage rather prevent working-class people from running for office.</p>
 <p><strong>Variables:</strong></p>
+<p><strong>The variables we use in our analysis:</strong></p>
 <ol type="1">
 <li><p>Dependent variable: <strong>candpct</strong>, which represents the candidate’s vote share in the primary election.</p></li>
 <li><p>Independent variables: We select the variables that potentially measure factors related to the candidate’s vote share. These selected 14 independent variables include:</p></li>
@@ -157,6 +159,17 @@ ul.task-list li input[type="checkbox"] {
 <li><p>gop (whether the candidate is Republican) – categorical</p></li>
 <li><p>ideo_extreme (absolute value of Bonica’s CFscore measure of candidate ideology)</p></li>
 <li><p>former_worker (whether the candidate used to be a worker but is no longer now) – categorical</p></li>
+</ul>
+<p><strong>The variables we drop or do not use in our analysis:</strong></p>
+<ul>
+<li><p>worker_current_recode (binary indicator for whether the candidate was a worker) (We drop it because it is not an influential factor for our research question, and the "worker" variable is a more accurate indicator for us to choose the working class candidates.)</p></li>
+<li><p>race_id (unique identifier for each candidate contest) (We drop it because this is an identifier and is not an informative variable)</p></li>
+<li><p>year (the year of the election the candidate participate in) (We drop it because it is not an informative variable for us to understand and predict the vote share for working class candidates)</p></li>
+<li><p>dem_vote (vote share for the Democratic candidate in the most recent presidential election) (We drop it because we are not interested in dividing up the candidates by party in the scope of this project)</p></li>
+<li><p>candvotes (total number of candidate's votes received) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable)&nbsp;</p></li>
+<li><p>tvotes (total number of votes case for all candidates) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable)&nbsp;</p></li>
+<li><p>Ideo_extreme (absolute value of Bonica’s CFscore measure of candidate ideology) (We drop it because around half or more of the observations have N/A for ideo_extreme, which would affect the feasibility and accuracy for the linear regression)</p></li>
+<li><p>qualbin (there is no formal definition for this variable in the codebook or the source article, so we drop this variable)</p></li>
 </ul>
 <p><strong>Research Question</strong>: What factors contribute to votes in working class representatives’ favor?</p>
 <p>This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.</p>
@@ -220,7 +233,7 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 <p><img src="report_files/figure-html/exploratory-analysis1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The correlation between percentage of residents with four-year college degrees and the median income is linear, positive, and ver strong, which makes real-world sense.</p>
+<p>The correlation between percentage of residents with four-year college degrees in congressional districts where working-class candidates won, the median income is linear, positive, and very strong, which makes real-world sense.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
@@ -230,6 +243,18 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 </div>
 </div>
 <p>The correlation between percentage of the median income of the residents and the campaign spending is non-linear, positive, but not as strong as the previous ones. The positive correlation makes sense, but given a lot of the observations in the data set had 0$ as its campaign funding and outside spending, this may not be the comprehensive picture.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="report_files/figure-html/EDA3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successsfully exceled a large number of opponents.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="report_files/figure-html/EDA4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Based on the violin plots, we can see that when the candidate is an incumbent, they tend to garner a large vote share, the distribution of which is highly skewed. At the same time, nonquality nonincumbent, unsurprisingly, has the lowest vote share and also the largest spread and variance in terms of the vote share.</p>
 <p><strong>Hypothesis</strong> Based on our understanding of factors contributing to candidate success, we believe that total_primary (total dollars contributed toward a candidate’s campaign funds and outside spending in dollars), quality_candidate (incumbent/quality status of the candidate), and qualnumber (number of quality opponents) will most impact candidate success, with greater campaign money, incumbent status, and a lower number of quality components resulting in higher candidate success (i.e., contribute to votes in working class representatives’ favor).</p>
 </section>
 <section id="literature" class="level1">
@@ -265,112 +290,112 @@ $ former_worker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Start:  AIC=-1216.6
+<pre><code>Start:  AIC=-1214.94
 candpct ~ state_abbrev + candnumber + cand_party + quality_cand + 
     qualnumber + openseat + PartyDonors1 + college + dist_income + 
     total_primary + third + gop + former_worker
 
 
-Step:  AIC=-1216.6
+Step:  AIC=-1214.94
 candpct ~ state_abbrev + candnumber + cand_party + quality_cand + 
     qualnumber + openseat + PartyDonors1 + college + dist_income + 
     total_primary + third + former_worker
 
 
-Step:  AIC=-1216.6
+Step:  AIC=-1214.94
 candpct ~ state_abbrev + candnumber + cand_party + quality_cand + 
     qualnumber + openseat + PartyDonors1 + college + dist_income + 
     total_primary + former_worker
 
                 Df Sum of Sq    RSS     AIC
-- state_abbrev  37    0.9420 5.5877 -1233.0
-- cand_party     1    0.0001 4.6458 -1218.6
-- college        1    0.0016 4.6473 -1218.5
-- former_worker  1    0.0157 4.6614 -1217.5
-&lt;none&gt;                       4.6457 -1216.6
-- dist_income    1    0.0448 4.6905 -1215.6
-- total_primary  1    0.0478 4.6935 -1215.4
-- PartyDonors1   1    0.0490 4.6947 -1215.3
-- openseat       1    0.0500 4.6956 -1215.3
-- qualnumber     1    0.1728 4.8185 -1207.2
-- quality_cand   1    0.3997 5.0454 -1192.8
-- candnumber     1    3.3753 8.0209 -1048.2
+- state_abbrev  37    0.9444 5.5850 -1231.2
+- cand_party     1    0.0000 4.6407 -1216.9
+- college        1    0.0018 4.6424 -1216.8
+- former_worker  1    0.0166 4.6572 -1215.8
+- total_primary  1    0.0230 4.6636 -1215.4
+&lt;none&gt;                       4.6406 -1214.9
+- openseat       1    0.0365 4.6772 -1214.5
+- dist_income    1    0.0448 4.6855 -1213.9
+- PartyDonors1   1    0.0512 4.6918 -1213.5
+- qualnumber     1    0.1770 4.8176 -1205.3
+- quality_cand   2    0.4048 5.0454 -1192.8
+- candnumber     1    3.2524 7.8931 -1051.2
 
-Step:  AIC=-1233
+Step:  AIC=-1231.15
 candpct ~ candnumber + cand_party + quality_cand + qualnumber + 
     openseat + PartyDonors1 + college + dist_income + total_primary + 
     former_worker
 
                 Df Sum of Sq     RSS     AIC
-- cand_party     1    0.0001  5.5878 -1235.0
-- college        1    0.0187  5.6064 -1234.0
-- former_worker  1    0.0267  5.6144 -1233.5
-- PartyDonors1   1    0.0270  5.6147 -1233.5
-&lt;none&gt;                        5.5877 -1233.0
-- openseat       1    0.0549  5.6426 -1232.0
-- dist_income    1    0.1026  5.6903 -1229.3
-- total_primary  1    0.1446  5.7323 -1227.0
-- qualnumber     1    0.2674  5.8551 -1220.4
-- quality_cand   1    0.6903  6.2780 -1198.7
-- candnumber     1    5.2843 10.8720 -1027.3
+- cand_party     1    0.0001  5.5851 -1233.1
+- college        1    0.0190  5.6040 -1232.1
+- PartyDonors1   1    0.0256  5.6106 -1231.7
+- former_worker  1    0.0267  5.6117 -1231.7
+&lt;none&gt;                        5.5850 -1231.2
+- openseat       1    0.0572  5.6422 -1230.0
+- dist_income    1    0.1045  5.6895 -1227.4
+- total_primary  1    0.1306  5.7156 -1225.9
+- qualnumber     1    0.2281  5.8131 -1220.7
+- quality_cand   2    0.6930  6.2780 -1198.7
+- candnumber     1    5.1778 10.7628 -1028.5
 
-Step:  AIC=-1234.99
+Step:  AIC=-1233.14
 candpct ~ candnumber + quality_cand + qualnumber + openseat + 
     PartyDonors1 + college + dist_income + total_primary + former_worker
 
                 Df Sum of Sq     RSS     AIC
-- college        1    0.0187  5.6065 -1236.0
-- former_worker  1    0.0268  5.6146 -1235.5
-- PartyDonors1   1    0.0269  5.6147 -1235.5
-&lt;none&gt;                        5.5878 -1235.0
-- openseat       1    0.0553  5.6431 -1233.9
-- dist_income    1    0.1038  5.6916 -1231.2
-- total_primary  1    0.1446  5.7324 -1229.0
-- qualnumber     1    0.2690  5.8568 -1222.3
-- quality_cand   1    0.6916  6.2794 -1200.6
-- candnumber     1    5.3842 10.9720 -1026.5
+- college        1    0.0189  5.6041 -1234.1
+- PartyDonors1   1    0.0255  5.6106 -1233.7
+- former_worker  1    0.0268  5.6119 -1233.7
+&lt;none&gt;                        5.5851 -1233.1
+- openseat       1    0.0575  5.6426 -1232.0
+- dist_income    1    0.1057  5.6908 -1229.3
+- total_primary  1    0.1305  5.7157 -1227.9
+- qualnumber     1    0.2290  5.8141 -1222.6
+- quality_cand   2    0.6943  6.2794 -1200.6
+- candnumber     1    5.2761 10.8612 -1027.6
 
-Step:  AIC=-1235.95
+Step:  AIC=-1234.09
 candpct ~ candnumber + quality_cand + qualnumber + openseat + 
     PartyDonors1 + dist_income + total_primary + former_worker
 
                 Df Sum of Sq     RSS     AIC
-- former_worker  1    0.0286  5.6351 -1236.4
-- PartyDonors1   1    0.0314  5.6378 -1236.2
-&lt;none&gt;                        5.6065 -1236.0
-- openseat       1    0.0526  5.6591 -1235.0
-- dist_income    1    0.1205  5.7270 -1231.3
-- total_primary  1    0.1398  5.7463 -1230.3
-- qualnumber     1    0.2608  5.8673 -1223.8
-- quality_cand   1    0.6746  6.2811 -1202.5
-- candnumber     1    5.4270 11.0335 -1026.7
+- former_worker  1    0.0286  5.6326 -1234.5
+- PartyDonors1   1    0.0299  5.6340 -1234.4
+&lt;none&gt;                        5.6041 -1234.1
+- openseat       1    0.0545  5.6586 -1233.1
+- dist_income    1    0.1226  5.7266 -1229.3
+- total_primary  1    0.1256  5.7297 -1229.2
+- qualnumber     1    0.2222  5.8262 -1224.0
+- quality_cand   2    0.6770  6.2811 -1202.5
+- candnumber     1    5.3145 10.9185 -1028.0
 
-Step:  AIC=-1236.37
+Step:  AIC=-1234.5
 candpct ~ candnumber + quality_cand + qualnumber + openseat + 
     PartyDonors1 + dist_income + total_primary
 
                 Df Sum of Sq     RSS     AIC
-- PartyDonors1   1    0.0316  5.6667 -1236.6
-&lt;none&gt;                        5.6351 -1236.4
-- openseat       1    0.0566  5.6917 -1235.2
-- dist_income    1    0.1286  5.7636 -1231.3
-- total_primary  1    0.1560  5.7911 -1229.8
-- qualnumber     1    0.2627  5.8977 -1224.2
-- quality_cand   1    0.8550  6.4901 -1194.3
-- candnumber     1    5.4582 11.0932 -1027.0
+- PartyDonors1   1    0.0302  5.6628 -1234.8
+&lt;none&gt;                        5.6326 -1234.5
+- openseat       1    0.0585  5.6911 -1233.3
+- dist_income    1    0.1307  5.7634 -1229.3
+- total_primary  1    0.1391  5.7717 -1228.9
+- qualnumber     1    0.2238  5.8564 -1224.3
+- quality_cand   2    0.8575  6.4901 -1194.3
+- candnumber     1    5.3449 10.9775 -1028.3
 
-Step:  AIC=-1236.62
+Step:  AIC=-1234.84
 candpct ~ candnumber + quality_cand + qualnumber + openseat + 
     dist_income + total_primary
 
                 Df Sum of Sq     RSS     AIC
-&lt;none&gt;                        5.6667 -1236.6
-- openseat       1    0.0505  5.7172 -1235.8
-- dist_income    1    0.1114  5.7781 -1232.5
-- total_primary  1    0.1895  5.8562 -1228.4
-- qualnumber     1    0.2988  5.9655 -1222.6
-- quality_cand   1    1.2017  6.8684 -1178.6
-- candnumber     1    5.4504 11.1171 -1028.4</code></pre>
+&lt;none&gt;                        5.6628 -1234.8
+- openseat       1    0.0544  5.7171 -1233.8
+- dist_income    1    0.1146  5.7774 -1230.6
+- total_primary  1    0.1727  5.8354 -1227.5
+- qualnumber     1    0.2484  5.9112 -1223.4
+- quality_cand   2    1.2057  6.8684 -1178.6
+- candnumber     1    5.3292 10.9920 -1029.9</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -379,10 +404,10 @@ lm(formula = candpct ~ candnumber + quality_cand + qualnumber +
     openseat + dist_income + total_primary, data = candidate_final)
 
 Coefficients:
-  (Intercept)     candnumber   quality_cand     qualnumber       openseat  
-      0.99127       -0.10978        0.08668       -0.05079        0.05474  
-  dist_income  total_primary  
-     -0.14245        0.15614  </code></pre>
+  (Intercept)     candnumber  quality_cand1  quality_cand2     qualnumber  
+      0.99505       -0.11032        0.07103        0.17129       -0.04884  
+     openseat    dist_income  total_primary  
+      0.05965       -0.14525        0.16772  </code></pre>
 </div>
 </div>
 <p>The best-fit model from the backward selection process has an AIC of -1236.62.</p>
@@ -394,7 +419,7 @@ candpct ~ state_abbrev
                 Df Sum of Sq     RSS      AIC
 + candnumber     1    7.0298  5.7892 -1165.95
 + qualnumber     1    3.0725  9.7464 -1003.42
-+ quality_cand   1    1.0790 11.7399  -945.36
++ quality_cand   2    1.3494 11.4696  -950.63
 + total_primary  1    0.6870 12.1319  -935.12
 + openseat       1    0.5464 12.2725  -931.52
 + college        1    0.4283 12.3907  -928.53
@@ -409,7 +434,7 @@ Step:  AIC=-1165.95
 candpct ~ state_abbrev + candnumber
 
                 Df Sum of Sq    RSS     AIC
-+ quality_cand   1   0.64341 5.1458 -1200.7
++ quality_cand   2   0.67374 5.1154 -1200.5
 + PartyDonors1   1   0.32251 5.4667 -1181.8
 + former_worker  1   0.23521 5.5540 -1176.9
 + dist_income    1   0.11709 5.6721 -1170.3
@@ -421,111 +446,113 @@ candpct ~ state_abbrev + candnumber
 + gop            1   0.02400 5.7652 -1165.2
 + openseat       1   0.02174 5.7674 -1165.1
 
-Step:  AIC=-1200.71
+Step:  AIC=-1200.55
 candpct ~ state_abbrev + candnumber + quality_cand
 
                 Df Sum of Sq    RSS     AIC
-+ qualnumber     1  0.158993 4.9868 -1208.5
-+ total_primary  1  0.086519 5.0593 -1204.0
-+ openseat       1  0.077950 5.0678 -1203.5
-+ PartyDonors1   1  0.072241 5.0735 -1203.1
-+ dist_income    1  0.059072 5.0867 -1202.3
-+ former_worker  1  0.046199 5.0996 -1201.5
-&lt;none&gt;                       5.1458 -1200.7
-+ college        1  0.031269 5.1145 -1200.6
-+ cand_party     1  0.027321 5.1184 -1200.4
-+ gop            1  0.027321 5.1184 -1200.4
++ qualnumber     1  0.246892 4.8685 -1214.0
++ PartyDonors1   1  0.078055 5.0374 -1203.3
++ dist_income    1  0.072287 5.0432 -1203.0
++ total_primary  1  0.057223 5.0582 -1202.1
++ openseat       1  0.047956 5.0675 -1201.5
++ former_worker  1  0.042431 5.0730 -1201.2
++ college        1  0.035398 5.0800 -1200.7
+&lt;none&gt;                       5.1154 -1200.5
++ cand_party     1  0.029513 5.0859 -1200.4
++ gop            1  0.029513 5.0859 -1200.4
 
-Step:  AIC=-1208.5
+Step:  AIC=-1213.98
 candpct ~ state_abbrev + candnumber + quality_cand + qualnumber
 
                 Df Sum of Sq    RSS     AIC
-+ total_primary  1  0.164625 4.8222 -1217.0
-+ openseat       1  0.138040 4.8487 -1215.3
-+ PartyDonors1   1  0.044497 4.9423 -1209.3
-+ former_worker  1  0.038822 4.9480 -1208.9
-+ dist_income    1  0.037661 4.9491 -1208.9
-&lt;none&gt;                       4.9868 -1208.5
-+ college        1  0.020276 4.9665 -1207.8
-+ cand_party     1  0.013294 4.9735 -1207.3
-+ gop            1  0.013294 4.9735 -1207.3
++ total_primary  1  0.057886 4.8107 -1215.7
++ dist_income    1  0.051909 4.8166 -1215.3
++ openseat       1  0.048603 4.8199 -1215.1
++ PartyDonors1   1  0.044956 4.8236 -1214.9
+&lt;none&gt;                       4.8685 -1214.0
++ former_worker  1  0.029496 4.8391 -1213.9
++ college        1  0.023676 4.8449 -1213.5
++ cand_party     1  0.012446 4.8561 -1212.8
++ gop            1  0.012446 4.8561 -1212.8
 
-Step:  AIC=-1216.97
+Step:  AIC=-1215.72
 candpct ~ state_abbrev + candnumber + quality_cand + qualnumber + 
     total_primary
 
                 Df Sum of Sq    RSS     AIC
-+ dist_income    1  0.067333 4.7548 -1219.4
-+ openseat       1  0.034245 4.7879 -1217.2
-+ college        1  0.032944 4.7892 -1217.1
-&lt;none&gt;                       4.8222 -1217.0
-+ PartyDonors1   1  0.024123 4.7980 -1216.5
-+ former_worker  1  0.020585 4.8016 -1216.3
-+ cand_party     1  0.008663 4.8135 -1215.5
-+ gop            1  0.008663 4.8135 -1215.5
++ dist_income    1  0.067039 4.7436 -1218.1
++ college        1  0.031578 4.7791 -1215.8
+&lt;none&gt;                       4.8107 -1215.7
++ PartyDonors1   1  0.028897 4.7818 -1215.6
++ openseat       1  0.025521 4.7851 -1215.4
++ former_worker  1  0.021097 4.7896 -1215.1
++ cand_party     1  0.009331 4.8013 -1214.3
++ gop            1  0.009331 4.8013 -1214.3
 
-Step:  AIC=-1219.36
+Step:  AIC=-1218.1
 candpct ~ state_abbrev + candnumber + quality_cand + qualnumber + 
     total_primary + dist_income
 
                 Df Sum of Sq    RSS     AIC
-+ openseat       1  0.041694 4.7131 -1220.1
-+ PartyDonors1   1  0.037690 4.7171 -1219.8
-&lt;none&gt;                       4.7548 -1219.4
-+ former_worker  1  0.018636 4.7362 -1218.6
-+ college        1  0.001894 4.7529 -1217.5
-+ cand_party     1  0.001455 4.7534 -1217.5
-+ gop            1  0.001455 4.7534 -1217.5
++ PartyDonors1   1  0.043686 4.6999 -1219.0
++ openseat       1  0.032495 4.7111 -1218.2
+&lt;none&gt;                       4.7436 -1218.1
++ former_worker  1  0.019121 4.7245 -1217.4
++ college        1  0.002431 4.7412 -1216.2
++ cand_party     1  0.001747 4.7419 -1216.2
++ gop            1  0.001747 4.7419 -1216.2
 
-Step:  AIC=-1220.11
+Step:  AIC=-1218.98
 candpct ~ state_abbrev + candnumber + quality_cand + qualnumber + 
-    total_primary + dist_income + openseat
+    total_primary + dist_income + PartyDonors1
 
                 Df Sum of Sq    RSS     AIC
-+ PartyDonors1   1  0.050633 4.6625 -1221.5
-&lt;none&gt;                       4.7131 -1220.1
-+ former_worker  1  0.014270 4.6989 -1219.0
-+ college        1  0.003095 4.7100 -1218.3
-+ cand_party     1  0.000167 4.7130 -1218.1
-+ gop            1  0.000167 4.7130 -1218.1
++ openseat       1  0.041595 4.6583 -1219.8
+&lt;none&gt;                       4.6999 -1219.0
++ former_worker  1  0.020906 4.6790 -1218.4
++ college        1  0.000682 4.6993 -1217.0
++ cand_party     1  0.000643 4.6993 -1217.0
++ gop            1  0.000643 4.6993 -1217.0
 
-Step:  AIC=-1221.48
+Step:  AIC=-1219.76
 candpct ~ state_abbrev + candnumber + quality_cand + qualnumber + 
-    total_primary + dist_income + openseat + PartyDonors1
+    total_primary + dist_income + PartyDonors1 + openseat
 
                 Df Sum of Sq    RSS     AIC
-&lt;none&gt;                       4.6625 -1221.5
-+ former_worker  1 0.0151344 4.6474 -1220.5
-+ college        1 0.0009597 4.6615 -1219.5
-+ cand_party     1 0.0001010 4.6624 -1219.5
-+ gop            1 0.0001010 4.6624 -1219.5</code></pre>
+&lt;none&gt;                       4.6583 -1219.8
++ former_worker  1 0.0159243 4.6424 -1218.8
++ college        1 0.0010769 4.6573 -1217.8
++ cand_party     1 0.0000316 4.6583 -1217.8
++ gop            1 0.0000316 4.6583 -1217.8</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
 lm(formula = candpct ~ state_abbrev + candnumber + quality_cand + 
-    qualnumber + total_primary + dist_income + openseat + PartyDonors1, 
-    data = candidate_final)
+    qualnumber + total_primary + dist_income + PartyDonors1 + 
+    openseat, data = candidate_final)
 
 Coefficients:
    (Intercept)  state_abbrevAL  state_abbrevAR  state_abbrevAZ  state_abbrevCA  
-     1.0030779       0.0428212       0.0671862       0.0016764      -0.0853551  
+     0.9970297       0.0447638       0.0721069       0.0045695      -0.0818251  
 state_abbrevCO  state_abbrevFL  state_abbrevGA  state_abbrevHI  state_abbrevIA  
-     0.0589799       0.0305845       0.0653663       0.0439584      -0.0274889  
+     0.0640598       0.0342310       0.0701385       0.0484525      -0.0236901  
 state_abbrevIL  state_abbrevIN  state_abbrevKS  state_abbrevKY  state_abbrevMA  
-     0.0530875       0.0192071      -0.0412008      -0.0470589       0.0572721  
+     0.0560337       0.0213819      -0.0367687      -0.0442664       0.0605833  
 state_abbrevMD  state_abbrevME  state_abbrevMI  state_abbrevMN  state_abbrevMO  
-    -0.1276155       0.0410077       0.0053608       0.1050347       0.0183309  
+    -0.1241546       0.0447505       0.0054445       0.1031188       0.0206124  
 state_abbrevMS  state_abbrevNC  state_abbrevNE  state_abbrevNJ  state_abbrevNV  
-    -0.2368089       0.0188473      -0.0880654       0.0014223       0.0714303  
+    -0.2417778       0.0211904      -0.0962373       0.0054412       0.0750933  
 state_abbrevNY  state_abbrevOH  state_abbrevOK  state_abbrevOR  state_abbrevPA  
-    -0.0153163      -0.0350554      -0.1154218      -0.0601408       0.0392801  
+    -0.0125032      -0.0418088      -0.1141928      -0.0723135       0.0423362  
 state_abbrevRI  state_abbrevSC  state_abbrevTN  state_abbrevTX  state_abbrevUT  
-     0.0937451      -0.1558301      -0.0170952       0.0162124       0.0915936  
-state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber    quality_cand  
-     0.1157987       0.1451653       0.0275727      -0.1028294       0.0683651  
-    qualnumber   total_primary     dist_income        openseat    PartyDonors1  
-    -0.0436273       0.0943456      -0.1701731       0.0668427       0.0004865  </code></pre>
+     0.1125064      -0.1440838      -0.0129538       0.0193479       0.0861948  
+state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber   quality_cand1  
+     0.1227788       0.1469346       0.0298824      -0.1022728       0.0869592  
+ quality_cand2      qualnumber   total_primary     dist_income    PartyDonors1  
+     0.1386594      -0.0452976       0.0785510      -0.1696173       0.0004986  
+      openseat  
+     0.0610943  </code></pre>
 </div>
 </div>
 <p>The best-fit model from the forward selection process has an AIC of -1221.48.</p>
@@ -536,7 +563,7 @@ state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber    quality_cand
 <p>we also picked the top three variables: candnumber, dist_income, total_primary</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -447.1903</code></pre>
+<pre><code>[1] -453.4066</code></pre>
 </div>
 </div>
 <p>AIC for interaction model: -447.1903 Since the AIC for the interaction model is much larger than the additive model we get from the backward selection, we will stick to the additive model.</p>
@@ -552,7 +579,9 @@ state_abbrevVA  state_abbrevWA  state_abbrevWI      candnumber    quality_cand
 <p><img src="report_files/figure-html/visualization-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>Discussion</strong></p>
+</section>
+<section id="discussions" class="level1">
+<h1><strong>Discussions</strong></h1>
 <p>While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate’s campaign funds positively influences a candidate’s success. Additionally, the median income of the congressional district negatively influences a candidate’s success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them.</p>
 <p>The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate’s success. Therefore, future research should collect and explore data on other factors that could potentially impact working class candidate success, in order to determine causation rather than correlation. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns. Future research should then focus on the efficacy of specific campaign strategies given the demographics of the candidate’s congressional district.</p>
 
