@@ -59,7 +59,7 @@ We do not have any ethical concerns about the data. We hope that our research wi
 
 **The variables we drop or do not use in our analysis:**
 
--   worker_current_recode (binary indicator for whether the candidate was a worker) (We drop it because it is not an influential factor for our research question, and the \"worker\" variable is a more accurate indicator for us to choose the working class candidates.)
+-   worker_current_recode (binary indicator for whether the candidate was a worker) (We drop it because it is not an influential factor for our research question, and the "worker" variable is a more accurate indicator for us to choose the working class candidates.)
 
 -   race_id (unique identifier for each candidate contest) (We drop it because this is an identifier and is not an informative variable)
 
@@ -67,7 +67,7 @@ We do not have any ethical concerns about the data. We hope that our research wi
 
 -   dem_vote (vote share for the Democratic candidate in the most recent presidential election) (We drop it because we are not interested in dividing up the candidates by party in the scope of this project)
 
--   candvotes (total number of candidate\'s votes received) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
+-   candvotes (total number of candidate's votes received) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
 
 -   tvotes (total number of votes case for all candidates) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
 
