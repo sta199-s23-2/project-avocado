@@ -11,9 +11,7 @@ execute:
 
 Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.[^1] Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?
 
-The Candidates data set used in this research project is sourced from a publication in the Political Research Quarterly (2023) titled "Primary Barriers to Working Class Representation." The authors are Eric Hansen, Assistant Professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.[^2]
-
-Hansen and Treul collected, recorded, and analyzed novel data on the occupational background of all candidates who competed in the U.S. House of Representatives primaries between 2008 and 2016.
+The Candidates data set used in this research project is sourced from a publication in the Political Research Quarterly (2023) titled "Primary Barriers to Working Class Representation." The authors are Eric Hansen, Assistant Professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC. Hansen and Treul built on a data set published in 2019 by Treul and Rachel Porter that contained primary election records from 1980 to 2016. Hansen and Treul collected web searches on candidate occupations sourcing from local news, blogs, and social media. Hansen and Treul then conducted novel analysis on on the occupational background of all candidates who competed in the U.S. House of Representatives primaries between 2008 and 2016.[^2]
 
 The Candidates data set includes 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. House primaries between 2008 and 2016. Each row of observation measures factors informing election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate's performance as some of them are only numerical descriptions of vote share.
 
@@ -21,6 +19,7 @@ We do not have any ethical concerns about the data. We hope that our research wi
 
 [^1]: 1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.
 [^2]:Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
+
 **Variables:**
 
 **The variables we use in our analysis:**
