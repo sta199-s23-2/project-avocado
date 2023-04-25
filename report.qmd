@@ -11,16 +11,16 @@ execute:
 
 Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.[^1] Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?
 
-[^1]: 1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.
+The Candidates data set used in this research project is sourced from a publication in the Political Research Quarterly (2023) titled "Primary Barriers to Working Class Representation." The authors are Eric Hansen, Assistant Professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.[^2]
 
-The data set came from a journal published at Political Research Quarterly (2023). The authors were Eric Hansen, who is the assistant professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC.
+Hansen and Treul collected, recorded, and analyzed novel data on the occupational background of all candidates who competed in the U.S. House of Representatives primaries between 2008 and 2016.
 
-The authors collected, recorded, and analyzed novel data describing the occupational background of all candidates who competed in the U.S. House primaries between 2008 and 2016.
-
-The dataset was used to give us an idea of how well candidates perform in U.S. House primary elections. In total, there are 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. Hour primaries between 2008 and 2016. Each row of observation included a variety of factors related to election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate's performance as some of them are only numerical descriptions of vote share.
+The Candidates data set includes 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. House primaries between 2008 and 2016. Each row of observation measures factors informing election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate's performance as some of them are only numerical descriptions of vote share.
 
 We do not have any ethical concerns about the data. We hope that our research will encourage rather prevent working-class people from running for office.
 
+[^1]: 1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.
+[^2]:Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 **Variables:**
 
 **The variables we use in our analysis:**
@@ -166,6 +166,7 @@ candidate_final |>
 ```
 
 The correlation between percentage of the median income of the residents and the campaign spending is non-linear, positive, but not as strong as the previous ones. The positive correlation makes sense, but given a lot of the observations in the data set had 0\$ as its campaign funding and outside spending, this may not be the comprehensive picture.
+
 ```{r}
 #| label: EDA3
 
@@ -186,7 +187,8 @@ candidate_final |>
   theme_classic()
 
 ```
-Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successsfully exceled a large number of opponents. 
+
+Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successsfully exceled a large number of opponents.
 
 ```{r}
 #| label: EDA4
@@ -204,7 +206,8 @@ candidate_final |>
   theme_classic()
 
 ```
-Based on the violin plots, we can see that when the candidate is an incumbent, they tend to garner a large vote share, the distribution of which is highly skewed. At the same time, nonquality nonincumbent, unsurprisingly, has the lowest vote share and also the largest spread and variance in terms of the vote share. 
+
+Based on the violin plots, we can see that when the candidate is an incumbent, they tend to garner a large vote share, the distribution of which is highly skewed. At the same time, nonquality nonincumbent, unsurprisingly, has the lowest vote share and also the largest spread and variance in terms of the vote share.
 
 **Hypothesis** Based on our understanding of factors contributing to candidate success, we believe that total_primary (total dollars contributed toward a candidate's campaign funds and outside spending in dollars), quality_candidate (incumbent/quality status of the candidate), and qualnumber (number of quality opponents) will most impact candidate success, with greater campaign money, incumbent status, and a lower number of quality components resulting in higher candidate success (i.e., contribute to votes in working class representatives' favor).
 
