@@ -49,11 +49,12 @@ library(ggplot2)
 
 ```{r}
 #| label: load-data-2
+
 candidate <- read.table("data/Treul_Hansen_Replication_Data.tab", 
                         sep = "\t", header = TRUE)
 write.csv(candidate, file = "data/candidate.csv", col.names = TRUE)
 
-glimpse(candidate)
+#glimpse(candidate)
 ```
 
 ```{r}
@@ -197,23 +198,24 @@ From the models produced from the forward and backward selection, we select the 
 4.  Lastly, to make the results more straightforward and readable, we visualize the results. We choose the top three predictive variables (the top three variables with the highest coefficient,which indicate they are more powerful and decisive factors) in our final model, and use ggplot in R to create a visualization including two dot plots that shows the relationship between the three variables and the response variable (the candidates' vote share in the primary selection). We choose to use the facet of two dot plots because it helps to visualize the relationship of all three explanatory variables and the response variable in a single visualization. As a note, since our top three variables are all numerical, to make the graph more direct and informative, we group the variable candnumber (count of opponents) into small pools (1-3 opponents) and large pools (4 or more opponents). In our final visualization, our x-axis represents median income of the congressional district(\$100k), y-axis represents vote share in primary election (%), while the side-by-side graphs are based on candnumber.
 
 # **Results**
+**Using R markdown text to save space, reference appendix for outcomes from running data analysis**
 
 ```{r}
 #| label: count-observations 
-
-candidate_final |>
-  nrow() 
+#| message: false
+#candidate_final |>
+  #nrow() 
 ```
 
 ```{r}
 #| label: backward-selection 
 
 
-lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
-          + qualnumber + openseat + PartyDonors1 + college + dist_income
-          + total_primary + third + gop + former_worker, 
-          data = candidate_final)
-stepAIC(lm1,  direction = "backward") 
+#lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
+          #+ qualnumber + openseat + PartyDonors1 + college + #dist_income
+         # + total_primary + third + gop + former_worker, 
+         # data = candidate_final)
+#stepAIC(lm1,  direction = "backward") 
 
 ```
 
@@ -223,12 +225,12 @@ The best-fit model from the backward selection process has an AIC of -1236.62.
 #| label: forward-selection 
 
 
-lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
+#lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
 
-stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
-          + qualnumber + openseat + PartyDonors1 + college + dist_income
-          + total_primary + third + gop + former_worker,
-        direction = "forward")
+#stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
+         # + qualnumber + openseat + PartyDonors1 + college + dist_income
+         # + total_primary + third + gop + former_worker,
+       # direction = "forward")
 
 ```
 
@@ -245,15 +247,15 @@ we also picked the top three variables: candnumber, dist_income, total_primary
 ```{r}
 #| label: interaction 
 
-lmInt <- lm(formula = candpct ~ candnumber * quality_cand * qualnumber * openseat * dist_income * total_primary, data = candidate_final)
+#lmInt <- lm(formula = candpct ~ candnumber * quality_cand * qualnumber * openseat * dist_income * total_primary, data = candidate_final)
 
 
-linear_reg()|>
-  set_engine("lm") |>
-  fit(candpct ~ candnumber * quality_cand * qualnumber * openseat * 
-        dist_income * total_primary, data = candidate_final) |>
-  glance() |>
-  pull(AIC)
+#linear_reg()|>
+ # set_engine("lm") |>
+  #fit(candpct ~ candnumber * quality_cand * qualnumber * openseat * 
+      #  dist_income * total_primary, data = candidate_final) |>
+  #glance() |>
+  #pull(AIC)
 
 ```
 
@@ -357,3 +359,52 @@ The variables that we analyzed that are predictive of working-class success in e
 -   Ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology) (We drop it because around half or more of the observations have N/A for ideo_extreme, which would affect the feasibility and accuracy for the linear regression)
 
 -   qualbin (there is no formal definition for this variable in the codebook or the source article, so we drop this variable)
+
+**Running Results**
+
+```{r}
+#| label: count-observations-2 
+#| message: false
+candidate_final |>
+  nrow() 
+```
+
+```{r}
+#| label: backward-selection-2 
+
+
+lm1 <- lm(candpct ~ state_abbrev + candnumber + cand_party + quality_cand
+          + qualnumber + openseat + PartyDonors1 + college + dist_income
+          + total_primary + third + gop + former_worker, 
+          data = candidate_final)
+stepAIC(lm1,  direction = "backward") 
+
+```
+
+```{r}
+#| label: forward-selection-2 
+
+
+lm2 <- lm(candpct ~ state_abbrev, data = candidate_final)
+
+stepAIC(lm2,  scope = ~ state_abbrev + candnumber + cand_party + quality_cand
+          + qualnumber + openseat + PartyDonors1 + college + dist_income
+          + total_primary + third + gop + former_worker,
+       direction = "forward")
+
+```
+
+```{r}
+#| label: interaction-2
+
+lmInt <- lm(formula = candpct ~ candnumber * quality_cand * qualnumber * openseat * dist_income * total_primary, data = candidate_final)
+
+
+linear_reg()|>
+  set_engine("lm") |>
+  fit(candpct ~ candnumber * quality_cand * qualnumber * openseat * 
+        dist_income * total_primary, data = candidate_final) |>
+  glance() |>
+  pull(AIC)
+
+```
