@@ -173,15 +173,6 @@ attempt to set 'col.names' ignored</code></pre>
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="report_files/figure-html/exploratory-analysis1-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>The correlation between percentage of residents with four-year college degrees in congressional districts where working-class candidates won, the median income is linear, positive, and very strong, which makes real-world sense.</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
 <p><img src="report_files/figure-html/EDA2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
@@ -191,7 +182,7 @@ attempt to set 'col.names' ignored</code></pre>
 <p><img src="report_files/figure-html/EDA3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successsfully exceled a large number of opponents.</p>
+<p>Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successfully exceled a large number of opponents.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/EDA4-1.png" class="img-fluid" width="672"></p>
@@ -247,6 +238,9 @@ attempt to set 'col.names' ignored</code></pre>
 </div>
 <p>AIC for interaction model: -447.1903 Since the AIC for the interaction model is much larger than the additive model we get from the backward selection, we will stick to the additive model.</p>
 <p>conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original additive model.</p>
+<p>Because the backward selection model gave us six variables, to choose the top three most prominent factors, we looked at their coeifficients. The three variables with the largest coefficients were: dist_income, which is the median income of the congressional districtin 100K, total_primary, which is the total campaign funds and outside spending in millions, and number of candidates.</p>
+<p>The generated outcomes (reference appendix) tells us that with one unit ($100k) increase in the congressional district’s median income, holding other things constant, there is on average a 0.14525 percentage decrease in the candadate’s vote share. With one unit (1 million dollar) increase in the total campaign funds and outside spending, there is on average a 0.16772 increase in the candidate’s vote share. Lastly, everytime there is one more candidate in the same election, there is, on average, a 0.11032 percentage decrease in avergae in the candidate’s vote share.</p>
+<p>In short, among all the variables in teh dataset, we have found the three factors with the most explanatory power. We have found that a candidate’s performance is positively correlated with total campaign funds and outside spending but negatively correlated with the median income of the congressional district and the number of competing candidates.</p>
 <div class="cell">
 
 </div>
@@ -271,7 +265,7 @@ attempt to set 'col.names' ignored</code></pre>
 <ul>
 <li><p>state_abbrev (the state the candidate is from) – categorical</p></li>
 <li><p>candnumber (count of opponents in the candidate’s primary election) – quantitative but later factored into categorical</p></li>
-<li><p>cand_party (the party of the candidate) – categorcial</p></li>
+<li><p>cand_party (the party of the candidate) – categorical</p></li>
 <li><p>quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent) – categorical</p></li>
 <li><p>qualnumber (count of quality opponents) – quantitative</p></li>
 <li><p>openseat (whether the incumbent is running for reelection) – categorical</p></li>

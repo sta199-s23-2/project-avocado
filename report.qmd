@@ -89,22 +89,6 @@ The mean candidate vote share in the vote share is 0.8035573, the mean number of
 
 **EDA**
 
-```{r}
-#| label: exploratory-analysis1
-
-candidate_final |>
-  ggplot(aes(x = college, y = dist_income)) +
-  geom_smooth(color = "purple") +
-  labs(x = "% of residents with four-year college degrees", 
-       y = "median income of the congressional district (100k)", 
-       title = "Is there a correlation between education and income?", 
-       subtitle = 
-         "for congressional districts where working-class candidates won") +
-  theme_classic()
-  
-```
-
-The correlation between percentage of residents with four-year college degrees in congressional districts where working-class candidates won, the median income is linear, positive, and very strong, which makes real-world sense.
 
 ```{r}
 #| label: EDA2
@@ -144,7 +128,7 @@ candidate_final |>
 
 ```
 
-Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successsfully exceled a large number of opponents.
+Based on this plot, we can see that most of the elections, we have an incumbent competing against a small number of candidates, which makes sense given we are only looking at elections where they won. A large majority of the elections also had fewer than 5 candidates. There are also a few outliers where the candidate, as a quality nonincumbent successfully exceled a large number of opponents.
 
 ```{r}
 #| label: EDA4
@@ -266,6 +250,12 @@ AIC for interaction model: -447.1903 Since the AIC for the interaction model is 
 
 conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original additive model.
 
+Because the backward selection model gave us six variables, to choose the top three most prominent factors, we looked at their coeifficients. The three variables with the largest coefficients were: dist_income, which is the median income of the congressional districtin 100K, total_primary, which is the total campaign funds and outside spending in millions, and number of candidates. 
+
+The generated outcomes (reference appendix) tells us that with one unit ($100k) increase in the congressional district's median income, holding other things constant, there is on average a 0.14525 percentage decrease in the candadate's vote share. With one unit (1 million dollar) increase in  the  total campaign funds and outside spending, there is on average a 0.16772 increase in the candidate's vote share. Lastly, everytime there is one more candidate in the same election, there is, on average, a 0.11032 percentage decrease in avergae in the candidate's vote share. 
+
+In short, among all the variables in teh dataset, we have found the three factors with the most explanatory power. We have found that a candidate's performance is positively correlated with total campaign funds and outside spending but negatively correlated with the median income of the congressional district and the number of competing candidates. 
+
 ```{r}
 #| label: dataset-4-visualization 
 
@@ -322,7 +312,7 @@ The variables that we analyzed that are predictive of working-class success in e
 
 -   candnumber (count of opponents in the candidate's primary election) -- quantitative but later factored into categorical
 
--   cand_party (the party of the candidate) -- categorcial
+-   cand_party (the party of the candidate) -- categorical
 
 -   quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent) -- categorical
 
