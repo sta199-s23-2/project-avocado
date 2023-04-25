@@ -225,11 +225,11 @@ The best-fit model from the forward selection process has an AIC of -1221.48.
 
 **selected model**
 
-We end up choosing the model from the backward selection method because it yielded a lower AIC, indicating that the model is better, and had fewer variables than the best model generated through forward selection. The variables includes in the model are candnumber, quality_cand, qualnumber, openseat, dist_income, total_primary.
+We ended up choosing the model from the backward selection method because it yielded a lower AIC, indicating that the model is better, and had fewer variables than the best model generated through forward selection. The variables included in the model are candnumber, quality_cand, qualnumber, openseat, dist_income, total_primary.
 
 lm(formula = candpct \~ candnumber + quality_cand + qualnumber + openseat + dist_income + total_primary, data = candidate_final)
 
-we also picked the top three variables: candnumber, dist_income, total_primary
+We then picked the top three variables: candnumber, dist_income, total_primary.
 
 ```{r}
 #| label: interaction 
@@ -250,11 +250,13 @@ AIC for interaction model: -447.1903 Since the AIC for the interaction model is 
 
 conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original additive model.
 
-Because the backward selection model gave us six variables, to choose the top three most prominent factors, we looked at their coeifficients. The three variables with the largest coefficients were: dist_income, which is the median income of the congressional districtin 100K, total_primary, which is the total campaign funds and outside spending in millions, and number of candidates. 
+Because the backward selection model gave us six variables, to choose the top three most prominent factors, we looked at their coeifficients. The three variables with the largest coefficients were: dist_income, which is the median income of the congressional district in $100K, total_primary, which is the total campaign funds and outside spending in millions, and number of candidates. 
 
-The generated outcomes (reference appendix) tells us that with one unit ($100k) increase in the congressional district's median income, holding other things constant, there is on average a 0.14525 percentage decrease in the candadate's vote share. With one unit (1 million dollar) increase in  the  total campaign funds and outside spending, there is on average a 0.16772 increase in the candidate's vote share. Lastly, everytime there is one more candidate in the same election, there is, on average, a 0.11032 percentage decrease in avergae in the candidate's vote share. 
+The generated outcomes (reference appendix) tell us that with one unit ($100k) increase in the congressional district's median income, holding other variables constant, there is on average a 0.14525 percentage decrease in the candidate's vote share. With one unit (1 million dollar) increase inthe  total campaign funds and outside spending, there is on average a 0.16772 percentage increase in the candidate's vote share. Lastly, every time there is one more candidate in the same election, there is, on average, a 0.11032 percentage decrease in avergae in the candidate's vote share. 
 
-In short, among all the variables in teh dataset, we have found the three factors with the most explanatory power. We have found that a candidate's performance is positively correlated with total campaign funds and outside spending but negatively correlated with the median income of the congressional district and the number of competing candidates. 
+In short, among all the variables in the dataset, we have found the three factors with the most explanatory power. We have found that a candidate's performance is positively correlated with total campaign funds and outside spending but negatively correlated with the median income of the congressional district and the number of competing candidates. 
+
+The following visualization incorporates all three of the variables with the most explanatory power. Candidate number has been mutated into a large pool and a small pool of candidates, enabling their faceting and visualization on the graph. Campaign funds are visualized by color, with an increase in warmth as funds increase. Finally, median income of the congressional district in $100k is on the x-axis, leaving our response variable, vote share (%), on the y-axis.
 
 ```{r}
 #| label: dataset-4-visualization 
