@@ -20,63 +20,19 @@ We do not have any ethical concerns about the data. We hope that our research wi
 [^1]: 1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.
 [^2]:Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 
-**Variables:**
-
-**The variables we use in our analysis:**
-
-1.  Dependent variable: **candpct**, which represents the candidate's vote share in the primary election.
-
-2.  Independent variables: We select the variables that potentially measure factors related to the candidate's vote share. These selected 14 independent variables include:
-
--   state_abbrev (the state the candidate is from) -- categorical
-
--   candnumber (count of opponents in the candidate's primary election) -- quantitative but later factored into categorical
-
--   cand_party (the party of the candidate) -- categorcial
-
--   quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent) -- categorical
-
--   qualnumber (count of quality opponents) -- quantitative
-
--   openseat (whether the incumbent is running for reelection) -- categorical
-
--   partyDonors1 (count of donations candidate received from donors to their party's national campaign funds) -- quantitative
-
--   college (percentage of the congressional district's residents who hold four-year college degrees) -- quantitative
-
--   dist_income (median income of the congressional district) -- quantitative
-
--   total_primary (total dollars contributed toward a candidate's campaign funds and outside spending, unit: millions of dollars) -- quantitative
-
--   third (whether candidate runs as a third party or independent) -- categorical
-
--   gop (whether the candidate is Republican) -- categorical
-
--   ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology)
-
--   former_worker (whether the candidate used to be a worker but is no longer now) -- categorical
-
-**The variables we drop or do not use in our analysis:**
-
--   worker_current_recode (binary indicator for whether the candidate was a worker) (We drop it because it is not an influential factor for our research question, and the "worker" variable is a more accurate indicator for us to choose the working class candidates.)
-
--   race_id (unique identifier for each candidate contest) (We drop it because this is an identifier and is not an informative variable)
-
--   year (the year of the election the candidate participate in) (We drop it because it is not an informative variable for us to understand and predict the vote share for working class candidates)
-
--   dem_vote (vote share for the Democratic candidate in the most recent presidential election) (We drop it because we are not interested in dividing up the candidates by party in the scope of this project)
-
--   candvotes (total number of candidate's votes received) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
-
--   tvotes (total number of votes case for all candidates) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
-
--   Ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology) (We drop it because around half or more of the observations have N/A for ideo_extreme, which would affect the feasibility and accuracy for the linear regression)
-
--   qualbin (there is no formal definition for this variable in the codebook or the source article, so we drop this variable)
-
 **Research Question**: What factors contribute to votes in working class representatives' favor?
 
-This research question is important for the following reasons. Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue in order to identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representatives. As a result, we do not know much about what factors allow working-class elected officials to overcome these barriers to election and thus, what factors influence their positive performance. We have decided to focus our research on working-class officials who have been elected to office as a case study. Results from our research would provide valuable insight to future working-class candidates. Ultimately, we hope this project can provide insight to future working class candidates providing more guidance to their campaign strategies and fundraising efforts. As a result, we hope this could contribute to more equality and equity in the government.
+To answer our research question of what factors contribute to votes in working class representatives' favor we selected fourteen independent variables that potentially measure factors related to the candidate's vote share. We looked at **candpct**, a quantitative variable which represents the candidate's vote share in the primary election as our dependent variable to quantify success in elections.
+
+**Categorical Independent Variables Studied:** state_abbrev (the state the candidate is from), cand_party (the party of the candidate), quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent), openseat (whether the incumbent is running for reelection), third (whether candidate runs as a third party or independent), gop (whether the candidate is Republican), former_worker (whether the candidate used to be a worker but is no longer now)
+
+**Quantitative Independent Variables Studied:** qualnumber (count of quality opponents), partyDonors1 (count of donations candidate received from donors to their party's national campaign funds), college (percentage of the congressional district's residents who hold four-year college degrees, dist_income (median income of the congressional district), total_primary (total dollars contributed toward a candidate's campaign funds and outside spending, unit: millions of dollars), ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology)
+
+candnumber (count of opponents in the candidate's primary election) -- quantitative but later factored into categorical
+
+This research question is important for the following reasons: Given that the working class is less represented among high-level elected government officials, we would like to encourage research dedicated to this issue and identify factors that contribute to this phenomenon. Research in this area has focused on the barriers hindering working-class representation. As a result, information on what enables working-class candidates to overcome barriers to election in high-level government positions is lacking. Our research, looks to working-class candidates elected to the U.S. House of Representatives from 2008 to 2016 as a case study. Our research aims to provide valuable insight and guidance to future working-class candidates in shaping their campaign strategies and fundraising efforts. We hope this will contribute to more equality and equity in government.
+
+**Look to appendix for explanation of variables used and excluded in our analysis**
 
 **Data Cleaning**
 
@@ -351,3 +307,55 @@ candidate_final |>
 While our hypothesis predicted total_primary, quality_candidate, and qual_number as best explanatory variables for working class candidate success, our linear regression found dist_income, total_primary, and candnumber to best predict candidate success. This means that as we predicted, the money contributed toward a candidate's campaign funds positively influences a candidate's success. Additionally, the median income of the congressional district negatively influences a candidate's success, demonstrating that social class associations with candidates are important. Finally, although we predicted that the number of quality candidates would be negatively correlated with success, the total number of candidates is, indicating that the quality of opponents does not matter as much as the number of them.
 
 The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Therefore, even with the results from our research that outline what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate's success. Therefore, future research should collect and explore data on other factors that could potentially impact working class candidate success, in order to determine causation rather than correlation. Additionally our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns. Future research should then focus on the efficacy of specific campaign strategies given the demographics of the candidate's congressional district.
+
+**Appendix**
+
+1.  Dependent variable: **candpct**, which represents the candidate's vote share in the primary election.
+
+2.  Independent variables: We select the variables that potentially measure factors related to the candidate's vote share. These selected 14 independent variables include:
+
+-   state_abbrev (the state the candidate is from) -- categorical
+
+-   candnumber (count of opponents in the candidate's primary election) -- quantitative but later factored into categorical
+
+-   cand_party (the party of the candidate) -- categorcial
+
+-   quality_cand (0=candidate is nonquality nonincumbent, 1=candidate is quality nonincumbent, 2=candidate is incumbent) -- categorical
+
+-   qualnumber (count of quality opponents) -- quantitative
+
+-   openseat (whether the incumbent is running for reelection) -- categorical
+
+-   partyDonors1 (count of donations candidate received from donors to their party's national campaign funds) -- quantitative
+
+-   college (percentage of the congressional district's residents who hold four-year college degrees) -- quantitative
+
+-   dist_income (median income of the congressional district) -- quantitative
+
+-   total_primary (total dollars contributed toward a candidate's campaign funds and outside spending, unit: millions of dollars) -- quantitative
+
+-   third (whether candidate runs as a third party or independent) -- categorical
+
+-   gop (whether the candidate is Republican) -- categorical
+
+-   ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology)
+
+-   former_worker (whether the candidate used to be a worker but is no longer now) -- categorical
+
+**The variables we drop or do not use in our analysis:**
+
+-   worker_current_recode (binary indicator for whether the candidate was a worker) (We drop it because it is not an influential factor for our research question, and the "worker" variable is a more accurate indicator for us to choose the working class candidates.)
+
+-   race_id (unique identifier for each candidate contest) (We drop it because this is an identifier and is not an informative variable)
+
+-   year (the year of the election the candidate participate in) (We drop it because it is not an informative variable for us to understand and predict the vote share for working class candidates)
+
+-   dem_vote (vote share for the Democratic candidate in the most recent presidential election) (We drop it because we are not interested in dividing up the candidates by party in the scope of this project)
+
+-   candvotes (total number of candidate's votes received) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
+
+-   tvotes (total number of votes case for all candidates) (We drop it because candvotes/tvotes = candpct, and we only need candpct as the response variable) 
+
+-   Ideo_extreme (absolute value of Bonica's CFscore measure of candidate ideology) (We drop it because around half or more of the observations have N/A for ideo_extreme, which would affect the feasibility and accuracy for the linear regression)
+
+-   qualbin (there is no formal definition for this variable in the codebook or the source article, so we drop this variable)
