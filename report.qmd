@@ -1,6 +1,6 @@
 ---
 title: "Working Class Representative Performance"
-subtitle: "Which factors positively contribute to votes in their favor"
+subtitle: "Which factors positively contribute to votes in working class representatives’ favor"
 format: html
 editor: visual
 execute:
@@ -11,14 +11,15 @@ execute:
 
 Millionaires make up 3% of the United States population but represent a majority of officials in the House of Representatives, Senate, and Supreme Court.[^1] Among these high level government officials, the working class is not highly represented. Much research has gone into trying to understand factors that contribute to the lack of working class representation in high level government positions such as the high cost of political campaigns and lack of working-class candidates. But what about the select few that overcome these barriers? Who are the politicians in high-level government positions that started off as working-class candidates and what contributed to their success?
 
+[^1]: 1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.
+
 The Candidates data set used in this research project is sourced from a publication in the Political Research Quarterly (2023) titled "Primary Barriers to Working Class Representation." The authors are Eric Hansen, Assistant Professor of political science at Loyola University Chicago and Sarah A. Treul, an Associate Professor of political science at UNC. Hansen and Treul built on a data set published in 2019 by Treul and Rachel Porter that contained primary election records from 1980 to 2016. Hansen and Treul collected web searches on candidate occupations sourcing from local news, blogs, and social media. Hansen and Treul then conducted novel analysis on on the occupational background of all candidates who competed in the U.S. House of Representatives primaries between 2008 and 2016.[^2]
+
+[^2]: Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 
 The Candidates data set includes 7869 observations and 24 variables. Each observation represents a candidate who competed in the U.S. House primaries between 2008 and 2016. Each row of observation measures factors informing election results, such as vote share, fundraising, incumbency status, education level, ideology, number of opponents, and political affiliation. Not all variables are useful in terms of predicting the candidate's performance as some of them are only numerical descriptions of vote share.
 
 We do not have any ethical concerns about the data. We hope that our research will encourage rather prevent working-class people from running for office.
-
-[^1]: 1Burden, B. C. (2007). The Personal Roots of Representation. Princeton: Princeton University Press.
-[^2]:Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 
 **Research Question**: What factors contribute to votes in working class representatives' favor?
 
@@ -89,7 +90,6 @@ The mean candidate vote share in the vote share is 0.8035573, the mean number of
 
 **EDA**
 
-
 ```{r}
 #| label: EDA2
 
@@ -149,14 +149,13 @@ candidate_final |>
 
 Based on the violin plots, we can see that when the candidate is an incumbent, they tend to garner a large vote share, the distribution of which is highly skewed. At the same time, nonquality nonincumbent, unsurprisingly, has the lowest vote share and also the largest spread and variance in terms of the vote share.
 
-
 **Hypothesis** Based on our understanding of factors contributing to candidate success, we believe that total_primary (total dollars contributed toward a candidate's campaign funds and outside spending in dollars), quality_candidate (incumbent/quality status of the candidate), and qualnumber (number of quality opponents) will most impact candidate success, with greater campaign money, incumbent status, and a lower number of quality components resulting in higher candidate success (i.e., contribute to votes in working class representatives' favor).
 
 # **Literature**
 
-**Primary Barriers to Working Class Representation** [^2]
+**Primary Barriers to Working Class Representation** [^3]
 
-[^2]: Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
+[^3]: Treul, S. A., & Hansen, E. R. (2023). Primary Barriers to Working Class Representation. Political Research Quarterly, 0(0). https://doi.org/10.1177/10659129231154914
 
 This research article is written by Sarah Treul who co-published the dataset Primary Barriers to Working Class Representation which we hope to utilize in our research. Her research seeks to answer how working class candidates fare in primary elections given that working class candidates are a minority on the ballot compared to white-collar candidates. The research article analyzed occupational backgrounds of primary election candidates for the U.S. House of Representatives from 2008 to 2016 with election results. Treul and Hansen found that from 2008 to 2016, working class candidates are 31% less likely to win elections and tend to score 24% less votes than white collar candidates. In their analysis, Treul and Hansen suggests that lower success in primary elections for the working class may be due lower funding and negative bias among party leaders towards working class candidates.
 
@@ -166,11 +165,11 @@ This article uses the Primary Barriers to Working Class Representation data set 
 
 ***Analysis Procedure:***
 
-1.  To start off, we filter the dataset. First, we keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). We do this because we want to focus on working-class candidates who have won the election in our research. Then, we select the columns for the variables we will use dropping 8 columns (worker_current_recode, race_id, year, dem_vote, candvotes, tvotes, ideo_extreme, qualbin). We explained these variables and why we drop them in the "variables" section in the **appendix**. Lasly, we drop the rows with "N/A" for any of our selected variables since this would affect the accuracy of our model fitting and selection process. After all these procedures, we have 337 observations left.
+1.  To start off, we filter the dataset. First, we keep only candidates with working-class background (worker == 1) and have won the election (winwin == 1). We do this because we want to focus on working-class candidates who have won the election in our research. Then, we select the columns for the variables we will use dropping 8 columns (worker_current_recode, race_id, year, dem_vote, candvotes, tvotes, ideo_extreme, qualbin). We explained these variables and why we drop them in the "variables" section in the **appendix**. Lasly, we drop the rows with "N/A" for any of our selected variables since this would affect the accuracy of our model fitting and selection process. After all these procedures, we have 337 observations left. (shown in the code in the "Data Cleaning" section above)
 
 We chose multivariate linear regression as our methodology to answer the research question because we were looking for a method that determines the relative strength of explanatory variables and finds trends in data with respect to our response variable (candpct).
 
-2. We use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps find the best fit model. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive.
+2.  We use the forward and backward model selection method to compare and choose the variables that best predict the dependent variable. We choose to use stepwise selection (forward and backward model selection) method because it helps find the best fit model. During the stepwise selection, we use step AIC in the forward and backward model selection to choose the best-fit model, in which lower AIC suggests better fit and preferred model. Analyzing the AIC values is important because it quantifies which variables are most predictive.
 
 Specifically, for the forward selection, we first try to fit each variable in a linear regression model with a single independent variable and find out which fits the best (the one with the lowest AIC). Then, we try to add each variable into the existing best model. Theoretically, we repeat this process by trying to add more variables and compare the AIC until we find the best model. Since the number of variables is too large, we use the stepAIC method in R to perform the forward model selection. We choose the stepAIC method because it can be used to simplify the model of choice without reducing its predictive capabilities, which is consistent with our goal. Based on the result of the stepAIC, we get a best-fit model from the forward selection.
 
@@ -250,13 +249,13 @@ AIC for interaction model: -447.1903 Since the AIC for the interaction model is 
 
 conclusion: the interactive multiple linear regression model gave us a worse AIC, -447, which was higher than 1236.62. Therefore, we will keep the original additive model.
 
-Because the backward selection model gave us six variables, to choose the top three most prominent factors, we looked at their coeifficients. The three variables with the largest coefficients were: dist_income, which is the median income of the congressional district in $100K, total_primary, which is the total campaign funds and outside spending in millions, and number of candidates. 
+Because the backward selection model gave us six variables, to choose the top three most prominent factors, we looked at their coeifficients. The three variables with the largest coefficients were: dist_income, which is the median income of the congressional district in \$100K, total_primary, which is the total campaign funds and outside spending in millions, and number of candidates.
 
-The generated outcomes (reference appendix) tell us that with one unit ($100k) increase in the congressional district's median income, holding other variables constant, there is on average a 0.14525 percentage decrease in the candidate's vote share. With one unit (1 million dollar) increase inthe  total campaign funds and outside spending, there is on average a 0.16772 percentage increase in the candidate's vote share. Lastly, every time there is one more candidate in the same election, there is, on average, a 0.11032 percentage decrease in avergae in the candidate's vote share. 
+The generated outcomes (reference appendix) tell us that with one unit (\$100k) increase in the congressional district's median income, holding other variables constant, there is on average a 0.14525 percentage decrease in the candidate's vote share. With one unit (1 million dollar) increase inthe total campaign funds and outside spending, there is on average a 0.16772 percentage increase in the candidate's vote share. Lastly, every time there is one more candidate in the same election, there is, on average, a 0.11032 percentage decrease in avergae in the candidate's vote share.
 
-In short, among all the variables in the dataset, we have found the three factors with the most explanatory power. We have found that a candidate's performance is positively correlated with total campaign funds and outside spending but negatively correlated with the median income of the congressional district and the number of competing candidates. 
+In short, among all the variables in the dataset, we have found the three factors with the most explanatory power. We have found that a candidate's performance is positively correlated with total campaign funds and outside spending but negatively correlated with the median income of the congressional district and the number of competing candidates.
 
-The following visualization incorporates all three of the variables with the most explanatory power. Candidate number has been mutated into a large pool and a small pool of candidates, enabling their faceting and visualization on the graph. Campaign funds are visualized by color, with an increase in warmth as funds increase. Finally, median income of the congressional district in $100k is on the x-axis, leaving our response variable, vote share (%), on the y-axis.
+The following visualization incorporates all three of the variables with the most explanatory power. Candidate number has been mutated into a large pool and a small pool of candidates, enabling their faceting and visualization on the graph. Campaign funds are visualized by color, with an increase in warmth as funds increase. Finally, median income of the congressional district in \$100k is on the x-axis, leaving our response variable, vote share (%), on the y-axis.
 
 ```{r}
 #| label: dataset-4-visualization 
@@ -304,7 +303,7 @@ While our hypothesis predicted total_primary, quality_candidate, and qual_number
 
 The variables that we analyzed that are predictive of working-class success in elections may be predictive of success but do not cause candidates to win elections. Thus our research is limited to establishing correlations rather than causations. This is important to note because even in addition to the variables we are studying there are other factors, some that cannot be quantified that contribute to a candidates success in an election. Even with our results outlining what variables are most predictive, this does not mean that in every election these will be valuable factors in a candidate's success. Future research should collect and explore data on other factors that could potentially impact working class candidate success, in order to determine causation rather than correlation. Our research has limited applications because some factors that contribute to a candidates success such as income level or college education are not factors that can be changed when working a campaign strategy, yet understanding the importance of these variables can help candidates choose how to shape their own campaigns. Future research should focus on the efficacy of specific campaign strategies given the demographics of the candidate's congressional district.
 
-**Appendix**
+# **Appendix**
 
 1.  Dependent variable: **candpct**, which represents the candidate's vote share in the primary election.
 
