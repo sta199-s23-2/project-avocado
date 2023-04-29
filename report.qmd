@@ -166,7 +166,7 @@ This article uses the Primary Barriers to Working Class Representation data set 
 
 ***Analysis Procedure:***
 
-1.  To start off, we filter the dataset, as shown in the code and description in the "Data Cleaning" section above.
+1.  To start off, we filter the dataset, as shown in the "Data Cleaning" section above.
 
 We chose multivariate linear regression as our methodology to answer the research question because we were looking for a method that determines the relative strength of explanatory variables and finds trends in data with respect to our response variable (candpct).
 
@@ -180,7 +180,7 @@ From the models produced from the forward and backward selection, we select the 
 
 3.  Using the selected variables, we run an interactive multiple linear regression model to see which of the additive and interactive model works better. Based on the results, we select the model with the lower AIC.
 
-4.  Lastly, to make the results more straightforward and readable, we visualize the results. We choose the top three predictive variables (the top three variables with the highest coefficient,which indicate they are more powerful and decisive factors) in our final model, and use ggplot in R to create a visualization including two dot plots that shows the relationship between the three variables and the response variable (the candidates' vote share in the primary selection). We choose to use a side-by-side scatterplot because it helps to visualize the relationship of all three explanatory variables and the response variable in a single visualization. As a note, since our top three variables are all numerical, to make the graph more direct and informative, we group the variable candnumber (count of opponents) into small pools (1-3 opponents) and large pools (4 or more opponents). In our final visualization, our x-axis represents median income of the congressional district(\$100k), y-axis represents vote share in primary election (%), while the side-by-side graphs are based on candnumber.
+4.  Lastly, to make the results more straightforward and readable, we visualize the results. We choose the top three predictive variables (the top three variables with the highest coefficient,which indicate they are more powerful and decisive factors) in our final model, and use ggplot in R to create a visualization including two dot plots that shows the relationship between the three variables and the response variable (the candidates' vote share in the primary selection). We choose to use a side-by-side scatter plot because it helps to visualize the relationship of all three explanatory variables and the response variable in a single visualization. As a note, since our top three variables are all numerical, to make the graph more direct and informative, we group the variable candnumber (count of opponents) into small pools (1-3 opponents) and large pools (4 or more opponents). In our final visualization, our x-axis represents median income of the congressional district(\$100k), y-axis represents vote share in primary election (%), while the side-by-side graphs are based on candnumber.
 
 # **Results**
 
